@@ -30,8 +30,6 @@ export const login = user => dispatch => logIn(user)
         );
     }
     );
-    
-
 
 export const logout = () => dispatch => logOut()
     .then(()=> dispatch(logoutCurrentUser()));
