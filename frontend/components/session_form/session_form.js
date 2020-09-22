@@ -1,3 +1,5 @@
+import React from 'react';
+
 class SessionForm extends React.Component {
     constructor(props) {
       super(props);
@@ -18,10 +20,11 @@ class SessionForm extends React.Component {
         this.props.processForm(user);
       }
 
-    renderErrors()  
+    // renderErrors()  
     render(){
+      debugger
         return (
-          <div>
+          <nav>
               <form onSubmit={this.handleSubmit}>
               Use {this.props.formType} or {this.props.navLink}
               <label>Username:
@@ -40,7 +43,9 @@ class SessionForm extends React.Component {
 
               </form>
 
-          </div>
+          </nav>
         )
     }
 }
+
+export default SessionForm;

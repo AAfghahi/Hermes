@@ -10,7 +10,6 @@ const _nullSession ={
         case RECEIVE_CURRENT_USER:
             return {id: action.currentUser.id};
         case LOGOUT_CURRENT_USER:
-            debugger
             return _nullSession;
         default:
             return state;
