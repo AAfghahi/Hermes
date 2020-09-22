@@ -4,7 +4,7 @@ class SessionForm extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-        username: "",
+        email: "",
         password: ""
       };
       this.handleSubmit = this.handleSubmit.bind(this);
@@ -27,10 +27,10 @@ class SessionForm extends React.Component {
           <nav>
               <form onSubmit={this.handleSubmit}>
               Use {this.props.formType} or {this.props.navLink}
-              <label>Username:
+              <label>Email:
                 <input type='text'
                     value={this.state.username}
-                    onChange={this.update('username')}
+                    onChange={this.update('email')}
                     />
               </label>
               <label>Password:

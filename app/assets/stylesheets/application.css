@@ -14,7 +14,7 @@
  *= require_self
  */
 .login-form-container{
-    display:block;
+    display:flex;
     position:fixed;
     width:100%;
     top:7%;

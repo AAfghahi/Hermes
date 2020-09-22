@@ -5,7 +5,7 @@ class SignUpForm extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-        username: '',
+        email: '',
         password: ''
       };
       this.handleSubmit = this.handleSubmit.bind(this);
@@ -39,13 +39,14 @@ class SignUpForm extends React.Component {
       return (
         <div className="login-form-container">
           
+
           <section className='modal'>
-            <h1 className='modal_title'>Join Hermes today, it's Free!</h1>
+              <h1 className='modal_title'>Join Hermes today, it's Free!</h1>
               <form onSubmit={this.handleSubmit} className="signup_modal">
               
                 <br/>
                 {this.renderErrors()}
-                <div className="login-form">
+             
                   <br/>
                     <input type="text"
                       value={this.state.email}
@@ -62,7 +63,7 @@ class SignUpForm extends React.Component {
                     />
                   <br/>
                   <input className="session-submit" type="submit" value={this.props.formType} />
-                </div>
+
               </form>
           </section>
         </div>
