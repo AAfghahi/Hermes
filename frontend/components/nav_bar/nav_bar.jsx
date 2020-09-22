@@ -11,7 +11,7 @@ export default ({ currentUser, logout }) => {
     </nav>
   ) : (
     <nav>
-      <Link className="btn" to="/signup">Sign Up</Link>
+    
       <Link className="btn" to="/login">Log In</Link>
     </nav>
   );
