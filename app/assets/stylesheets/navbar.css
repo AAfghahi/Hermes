@@ -1,0 +1,55 @@
+.app{
+    display:flex;
+    justify-content: space-between;
+}
+.nav-bar{
+    width:100%;
+}
+.innerbar{
+    margin:0;
+    padding:0;
+    display:flex;
+    position:fixed;
+    justify-content: space-between;
+    align-items: stretch;
+    width: 95%; 
+    height:8%;
+}
+
+.nav_title{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.btn{
+    align-self:flex-end;
+}
+
+.navbutton{
+    align-self:center;
+    top:20px;
+    background-color: rgb(255, 84, 27);
+    padding: 5px;
+    padding-left:8px;
+    padding-right:8px;
+    margin-bottom: 25px;
+    height:50%;
+    text-decoration: none;
+    border-radius:8px;
+    border:none;
+}
+
+.btn{
+    color:white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size:14px;
+}
+
+.logo{
+    margin-left:100px;
+   display: block;
+   max-width: 100%;
+   height: 40px;
+   padding-bottom: 10px;
+
+}

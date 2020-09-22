@@ -13,3 +13,19 @@
  *= require_tree .
  *= require_self
  */
+.login-form-container{
+    display:flex;
+    position:fixed;
+    width:100%;
+    top:7%;
+    bottom:0;
+    right:0;
+    overflow:auto;
+    margin:0;
+    height:90%;
+    background-image: url("https://www.publicdomainpictures.net/pictures/220000/velka/mountain-biking-14915876029bb.jpg");
+}
+
+.app{
+    display:flex;
+}
