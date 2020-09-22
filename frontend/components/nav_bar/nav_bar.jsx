@@ -10,15 +10,15 @@ export default ({ currentUser, logout }) => {
       </h2>
     </nav>
   ) : (
-    <nav>
-    
-      <Link className="btn" to="/login">Log In</Link>
+    <nav className='innerbar'>
+        <img className='logo' src={window.logoURL} />
+        <button className='navbutton'><Link className="btn" to="/login">Log In</Link></button>
     </nav>
   );
 
   return (
-      <div className='nav-bar'>
+      <nav className='nav-bar'>
         {display}
-      </div>
+      </nav>
   );
 };

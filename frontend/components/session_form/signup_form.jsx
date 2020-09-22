@@ -38,32 +38,33 @@ class SignUpForm extends React.Component {
     render() {
       return (
         <div className="login-form-container">
-          <form onSubmit={this.handleSubmit} className="login-form-box">
-            Welcome to BenchBnB!
-            <br/>
-            Please {this.props.formType} or {this.props.navLink}
-            {this.renderErrors()}
-            <div className="login-form">
-              <br/>
-              <label>Username:
-                <input type="text"
-                  value={this.state.username}
-                  onChange={this.update('username')}
-                  className="login-input"
-                />
-              </label>
-              <br/>
-              <label>Password:
-                <input type="password"
-                  value={this.state.password}
-                  onChange={this.update('password')}
-                  className="login-input"
-                />
-              </label>
-              <br/>
-              <input className="session-submit" type="submit" value={this.props.formType} />
-            </div>
-          </form>
+          
+          <section className='modal'>
+            <h1 className='modal_title'>Join Hermes today, it's Free!</h1>
+              <form onSubmit={this.handleSubmit} className="signup_modal">
+              
+                <br/>
+                {this.renderErrors()}
+                <div className="login-form">
+                  <br/>
+                    <input type="text"
+                      value={this.state.email}
+                      placeholder='Your Email'
+                      onChange={this.update('email')}
+                      className="login-input"
+                    />
+                  <br/>
+                    <input type="password"
+                      value={this.state.password}
+                      placeholder='Your Password'
+                      onChange={this.update('password')}
+                      className="login-input"
+                    />
+                  <br/>
+                  <input className="session-submit" type="submit" value={this.props.formType} />
+                </div>
+              </form>
+          </section>
         </div>
       );
     }
