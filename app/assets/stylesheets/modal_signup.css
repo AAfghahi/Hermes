@@ -5,6 +5,14 @@
     bottom:10px;
     align-items: center;
 }
+
+.login-form-actual{
+    display:flex;
+    justify-content: center;
+    height:  80%;
+    bottom:10px;
+    align-items: center;
+}
 .modal{
     position:relative;
     min-width:450px;
@@ -43,9 +51,10 @@
     font-size:14px;
     background-color: rgb(255, 84, 27);
     border:none;
-    width:80%;
+    width:85%;
     margin:10px;
     padding:10px;
+    border-radius: 5px;
 }
 
 .login-input{
@@ -57,4 +66,14 @@
     border-radius: 2px;
     padding:10px;
     top:50px;
+}
+
+
+.errors{
+    list-style-type: none;
+    font-family: Arial, Helvetica, sans-serif;
+    color:white;
+    justify-self:center;
+    align-self:center;
+    text-align:center;
 }

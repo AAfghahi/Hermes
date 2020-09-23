@@ -12,7 +12,7 @@ export default ({ currentUser, logout }) => {
   ) : (
     <nav className='innerbar'>
         <img className='logo' src={window.logoURL} />
-        <button className='navbutton'><Link className="btn" to="/login">Log In</Link></button>
+        <Link className="btn" to="/login"><button className='navbutton'>Log In</button></Link>
     </nav>
   );
 

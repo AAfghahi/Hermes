@@ -1,8 +1,10 @@
 import React from 'react';
+import Footer from '../footer/footer'
 import {Link} from 'react-router-dom';
 
 class SignUpForm extends React.Component {
     constructor(props) {
+      
       super(props);
       this.state = {
         email: '',
@@ -27,7 +29,7 @@ class SignUpForm extends React.Component {
       return(
         <ul>
           {this.props.errors.map((error, i) => (
-            <li key={`error-${i}`}>
+            <li className='errors' key={`error-${i}`}>
               {error}
             </li>
           ))}
@@ -66,7 +68,7 @@ class SignUpForm extends React.Component {
 
               </form>
           </section>
-        </div>
+          </div>
       );
     }
   }
