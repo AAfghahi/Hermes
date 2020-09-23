@@ -1,15 +1,15 @@
 .login-form-container{
     display:flex;
     justify-content: center;
-    height:  80%;
-    bottom:10px;
+    height:70%;
+    bottom:30px;
     align-items: center;
 }
 
 .login-form-actual{
     display:flex;
     justify-content: center;
-    height:  80%;
+    height:80%;
     bottom:10px;
     align-items: center;
 }
