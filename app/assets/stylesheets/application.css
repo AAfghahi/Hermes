@@ -23,7 +23,7 @@
     overflow:auto;
     margin:0;
     height:91%;
-    background-image: image-url('/assets/signup.jpg');
+    background-image: url('/assets/signup.jpg');
 }
 
 .login-form-actual{
