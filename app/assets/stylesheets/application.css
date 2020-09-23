@@ -23,9 +23,28 @@
     overflow:auto;
     margin:0;
     height:90%;
-    background-image: url("https://www.publicdomainpictures.net/pictures/220000/velka/mountain-biking-14915876029bb.jpg");
+    background-image: url('/assets/signup.jpg');
+}
+
+.login-form-actual{
+    display:flex;
+    position:fixed;
+    width:100%;
+    top:7%;
+    bottom:0;
+    right:0;
+    overflow:auto;
+    margin:0;
+    height:90%;
+    background-image: url("/assets/login.jpg");
 }
 
 .app{
     display:flex;
+    
+}
+
+.footer{
+    min-height: 50px;
+    margin-top: auto;
 }

@@ -2,6 +2,7 @@ import React from 'react';
 
 class SessionForm extends React.Component {
     constructor(props) {
+      debugger
       super(props);
       this.state = {
         email: "",
@@ -20,30 +21,45 @@ class SessionForm extends React.Component {
         this.props.processForm(user);
       }
 
-    // renderErrors()  
+      renderErrors() {
+        return(
+          <ul>
+            {this.props.errors.map((error, i) => (
+              <li className='errors' key={`error-${i}`}>
+                {error}
+              </li>
+            ))}
+          </ul>
+        );
+      }  
     render(){
-      debugger
+   
         return (
-          <nav>
-              <form onSubmit={this.handleSubmit}>
-              Use {this.props.formType} or {this.props.navLink}
-              <label>Email:
-                <input type='text'
-                    value={this.state.username}
+          <div className='login-form-actual'>
+            <section className='modal'>
+              <h1 className='modal_title'>Login</h1>
+                <form onSubmit={this.handleSubmit}>
+                  
+                  {this.renderErrors()}
+
+                  <input type='text'
+                    value={this.state.email}
                     onChange={this.update('email')}
+                    className='login-input'
+                    placeholder='Your Email'
                     />
-              </label>
-              <label>Password:
+
                 <input type='password'
                     value={this.state.password}
-                    onChange={this.update('password')} 
+                    placeholder='Your Password'
+                    onChange={this.update('password')}
+                    className="login-input"
                     />
-              </label>
-              <input type='submit' value={this.props.formType}/>
 
+              <input className="session-submit" type="submit" value={this.props.formType} />
               </form>
-
-          </nav>
+            </section>
+          </div>
         )
     }
 }
