@@ -54,17 +54,17 @@ class SignUpForm extends React.Component {
                       value={this.state.email}
                       placeholder='Your Email'
                       onChange={this.update('email')}
-                      className="login-input"
+                      className="login-input-signup"
                     />
                   <br/>
                     <input type="password"
                       value={this.state.password}
                       placeholder='Your Password'
                       onChange={this.update('password')}
-                      className="login-input"
+                      className="login-input-signup"
                     />
                   <br/>
-                  <input className="session-submit" type="submit" value={this.props.formType} />
+                  <input className="session-submit-signup" type="submit" value={this.props.formType} />
 
               </form>
           </section>

@@ -11,7 +11,7 @@ export default ({ currentUser, logout }) => {
     </nav>
   ) : (
     <nav className='innerbar'>
-        <img className='logo' src={window.logoURL} />
+        <a href="/"> <img className='logo' src={window.logoURL} /></a>
         <Link className="btn" to="/login"><button className='navbutton'>Log In</button></Link>
     </nav>
   );
