@@ -23,3 +23,5 @@
 # Ignore JS dependencies and bundled assets
 bundle.js
 bundle.map.js
+# Ignore application configuration
+/config/application.yml

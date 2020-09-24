@@ -9,7 +9,7 @@ export default ({ currentUser, logout }) => {
     <nav>
       <h2>
         <p>Hello, {currentUser.username}</p>
-        <button onClick= {logout}>Logout</button>
+        <button onClick= {this.props.logout}>Logout</button>
       </h2>
     </nav>
   ) : (
@@ -24,7 +24,6 @@ export default ({ currentUser, logout }) => {
 
   return (
       <nav className='nav-bar'>
-        {console.log(location.pathname)}
         {display}
       </nav>
   );
