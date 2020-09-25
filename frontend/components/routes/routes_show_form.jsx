@@ -32,25 +32,27 @@ class RouteShow extends React.Component{
             {zoom:14, center: myLatlng}
         );
         
-        this.poly = new google.maps.Polyline({
+        this.poly = new google.maps.Polygon({
             strokeColor: '#FFFFFF',
             strokeOpacity: 1.0,
             strokeWeight: 3,
             zIndex:1,
             
         });
-        this.border = new google.maps.Polyline({
+        const border = {
             strokeColor:'#FF4500',
             strokeOpacity: 0.5,
             strokeWeight: 7,
-           
-        });
+        
+        };
 
         this.directionsService = new google.maps.DirectionsService();
         this.directionsRenderer = new google.maps.DirectionsRenderer({
             draggable: true,
             map: this.map,
             preserveViewport:true,
+            suppressMarkers:true, 
+            polylineOptions: border
         });
         const map = this.map;
         this.directionsRenderer.setMap(map);
