@@ -2,7 +2,6 @@ import React from 'react';
 import MarkerManager from '../../util/marker_manager';
 
 
-
 const myLatlng = { lat: 40.6602, lng: -73.9690 };
 
 const getCoordsObj = latLng =>({
@@ -16,10 +15,6 @@ class RouteShow extends React.Component{
     constructor(props){
         super(props);
         this.points = [];
-        
-
-        
-       
         this.createRoute.bind(this);
         this.registerListeners.bind(this);
         this.addMarker.bind(this);
@@ -31,14 +26,7 @@ class RouteShow extends React.Component{
             this.mapdiv,
             {zoom:14, center: myLatlng}
         );
-        
-        this.poly = new google.maps.Polygon({
-            strokeColor: '#FFFFFF',
-            strokeOpacity: 1.0,
-            strokeWeight: 3,
-            zIndex:1,
-            
-        });
+
         const border = {
             strokeColor:'#FF4500',
             strokeOpacity: 0.5,
@@ -61,9 +49,7 @@ class RouteShow extends React.Component{
   
     
     }
-    handleClick(coords){
-
-    }
+  
   
     registerListeners() {
         
@@ -74,9 +60,7 @@ class RouteShow extends React.Component{
             this.createRoute();
         });
 
-
-
-      }
+    }
 
     addMarker(){
         const map  = this.map;
@@ -132,9 +116,13 @@ class RouteShow extends React.Component{
                 <div className='sidebar'>
                     <h1>this will be the sidebar</h1>
                 </div>
+        
+                
                 <div className='map' ref={(el)=> this.mapdiv = el }>
                 
+                
                 </div>
+                
             </div>
             
         )
