@@ -22,6 +22,8 @@ class SplashForm extends React.Component{
                         <Link className="splashbtn" to="/signup"><button className='signupbutton'><img className='email' src={window.emailURL} />  Sign up with email</button></Link>
                         <div className="separator">or</div>
                         <button className= 'dummybtn' onClick={()=>this.props.login(this.props.user)}>Demo User</button>
+
+                        <p className='smalltext'>Already a member? <Link className='smalllink' to='/login'>Log in</Link></p>
                     </div>
 
                 </div>
