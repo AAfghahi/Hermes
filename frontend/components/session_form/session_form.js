@@ -21,16 +21,24 @@ class SessionForm extends React.Component {
         this.props.processForm(user);
       }
 
+      componentWillUnmount(){
+        this.props.clearErrors();
+      }
+
+     
+
       renderErrors() {
+        debugger
         return(
-          <ul>
-            {this.props.errors.map((error, i) => (
-              <li className='errors' key={`error-${i}`}>
-                {error}
-              </li>
-            ))}
-          </ul>
-        );
+            <ul className='login-errors'>
+              {this.props.errors.map((error, i) => (
+                <li className='errors' key={`error-${i}`}>
+                  {error}
+                  <br/>
+                </li>
+              ))}
+            </ul>
+          );
       }  
     render(){
    
@@ -62,6 +70,6 @@ class SessionForm extends React.Component {
           </div>
         )
     }
-}
+  }
 
 export default SessionForm;

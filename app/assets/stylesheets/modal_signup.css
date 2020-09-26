@@ -38,7 +38,7 @@
 
 .modal_title{
     background-color: black;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.7);
     color:white;
     padding-right:300px;
     border-top-left-radius: 8px;
@@ -75,7 +75,7 @@
     margin-left:25px;
     background:rgb(39, 39, 39);
     border:1px solid white;
-    color:black;
+    color:white;
     border-radius: 2px;
     left: 10px;
     padding:10px;
@@ -101,7 +101,7 @@
     width:80%;
     background:rgb(39, 39, 39);
     border:1px solid white;
-    color:black;
+    color:white;
     border-radius: 2px;
     left: 10px;
     padding:10px;
@@ -117,6 +117,7 @@
     border:white;
     box-shadow: 0 0 50px #fff;
     outline:none; 
+    color:black
 }
 
 .login-input-signup::placeholder{
@@ -147,6 +148,7 @@
     border:transparent;
     box-shadow: 0 0 50px #fff; 
     outline:none;
+    color:black;
 }
 
 .login-input::placeholder{
@@ -158,4 +160,16 @@
 .session-submit-signup:hover{
     background: rgb(215, 68, 20);
     cursor:pointer;
+}
+
+.errors{
+    color:rgb(241, 57, 57);
+    text-align:center;
+    justify-self:center;
+}
+
+.login-errors{
+    justify-self:center;
+    display:flex;
+    justify-content: center;
 }

@@ -5,18 +5,18 @@
 #  id              :bigint           not null, primary key
 #  email           :string           not null
 #  password_digest :string           not null
-#  birthday        :datetime         not null
+#  birthday        :datetime
 #  session_token   :string           not null
-#  first_name      :string           not null
-#  last_name       :string           not null
-#  gender          :string           not null
-#  age             :datetime         not null
-#  weight          :integer          not null
-#  height          :integer          not null
-#  location_lat    :decimal(, )      not null
-#  location_long   :decimal(, )      not null
+#  first_name      :string
+#  last_name       :string
+#  gender          :string
+#  weight          :integer
+#  height          :integer
+#  location_lat    :decimal(, )
+#  location_long   :decimal(, )
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  age             :integer
 #
 class User < ApplicationRecord
     validates :email, :session_token, presence:true, uniqueness:true
@@ -25,6 +25,8 @@ class User < ApplicationRecord
     attr_reader :password
     
     before_validation :ensure_session_token
+
+    has_many :routes
 
     def self.generate_session_token
         SecureRandom::urlsafe_base64()

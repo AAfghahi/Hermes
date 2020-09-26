@@ -4,13 +4,14 @@ import {Link} from 'react-router-dom';
 
 class SignUpForm extends React.Component {
     constructor(props) {
-   
+      
       super(props);
       this.state = {
         email: '',
         password: ''
       };
       this.handleSubmit = this.handleSubmit.bind(this);
+   
     }
   
     update(field) {
@@ -24,13 +25,14 @@ class SignUpForm extends React.Component {
       const user = Object.assign({}, this.state);
       this.props.processForm(user);
     }
-  
+   
     renderErrors() {
       return(
-        <ul>
+        <ul className='login-errors'>
           {this.props.errors.map((error, i) => (
             <li className='errors' key={`error-${i}`}>
               {error}
+              <br/>
             </li>
           ))}
         </ul>

@@ -1,5 +1,5 @@
 import React from 'react';
-import MarkerManager from '../../util/marker_manager';
+
 
 
 const myLatlng = { lat: 40.6602, lng: -73.9690 };
@@ -127,7 +127,7 @@ class RouteShow extends React.Component{
                 imageUrl: image,
                 polyline: polyline
             });
-            
+            debugger
         }
 
         findDistanceAndTime(directions){
@@ -178,6 +178,6 @@ class RouteShow extends React.Component{
 
 
 
-export default Map;
+export default RouteShow;
 
 

@@ -8,16 +8,17 @@ import Map from './routes/map';
 import SignUpFormContainer from './session_form/signup_form_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 const App = () => (
+ 
   <div className='app'>
     <header>
      <NavBar/>
      <Footer/>
     </header>
     <Switch>
-    <AuthRoute exact path="/" component={Splash} />
+    <Route exact path="/" component={Splash} />
     <AuthRoute exact path="/signup" component={SignUpFormContainer} />
     <AuthRoute exact path="/login" component={LoginForm} />
-    <AuthRoute exact path='/show' component={Map} />
+    <Route exact path="/show" component={Map} />
     </Switch>
   
   </div>
