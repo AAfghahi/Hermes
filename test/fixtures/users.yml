@@ -1,51 +1,31 @@
-# == Schema Information
-#
-# Table name: users
-#
-#  id              :bigint           not null, primary key
-#  username        :string           not null
-#  email           :string           not null
-#  password_digest :string           not null
-#  birthday        :datetime         not null
-#  session_token   :string           not null
-#  first_name      :string           not null
-#  last_name       :string           not null
-#  gender          :string           not null
-#  age             :datetime         not null
-#  weight          :integer          not null
-#  height          :integer          not null
-#  location_lat    :decimal(, )      not null
-#  location_long   :decimal(, )      not null
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
-#
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  username: MyString
-  email: MyString
-  password_digest: MyString
-  birthday: 2020-09-21 15:10:20
-  session_token: MyString
-  first_name: MyString
-  last_name: MyString
-  gender: MyString
-  age: 2020-09-21 15:10:20
-  weight: 1
-  height: 1
-  location_lat: 
-  location_long: 
+  origin_lat: 1
+  origin_lng: 1
+  destination_lat: 1
+  destination_lng: 1
+  route_name: MyString
+  activity_type: MyString
+  descriptionLtext: MyString
+  distance: 1
+  user_id: 1
+  elevation: 1
+  estimated_time: 1
+  encoded_polyline: MyString
+  image_url: MyString
 
 two:
-  username: MyString
-  email: MyString
-  password_digest: MyString
-  birthday: 2020-09-21 15:10:20
-  session_token: MyString
-  first_name: MyString
-  last_name: MyString
-  gender: MyString
-  age: 2020-09-21 15:10:20
-  weight: 1
-  height: 1
-  location_lat: 
-  location_long: 
+  origin_lat: 1
+  origin_lng: 1
+  destination_lat: 1
+  destination_lng: 1
+  route_name: MyString
+  activity_type: MyString
+  descriptionLtext: MyString
+  distance: 1
+  user_id: 1
+  elevation: 1
+  estimated_time: 1
+  encoded_polyline: MyString
+  image_url: MyString
