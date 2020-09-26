@@ -43,7 +43,8 @@ class SignUpForm extends React.Component {
           
 
           <section className='modal'>
-              <h1 className='modal_title'>Join Hermes today, it's Free!</h1>
+              <h1 className='modal_title'>Join Hermes today,<br/>
+               it's Free.</h1>
               <form onSubmit={this.handleSubmit} className="signup_modal">
               
                 <br/>
@@ -52,14 +53,14 @@ class SignUpForm extends React.Component {
                   <br/>
                     <input type="text"
                       value={this.state.email}
-                      placeholder='Your Email'
+                      placeholder='Email'
                       onChange={this.update('email')}
                       className="login-input-signup"
                     />
                   <br/>
                     <input type="password"
                       value={this.state.password}
-                      placeholder='Your Password'
+                      placeholder='Password'
                       onChange={this.update('password')}
                       className="login-input-signup"
                     />

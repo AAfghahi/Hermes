@@ -16,7 +16,7 @@ export default ({ currentUser, logout }) => {
     <nav className='innerbar'>
         <a href="/"> <img className='logo' src={window.logoURL} /></a>
         {location.pathname === "/login" ? (
-          <Link className="btn" to="/sign"><button className='navbutton'> Sign Up </button></Link>) : (
+          <Link className="btn" to="/signup"><button className='navbutton-signup'> Sign Up </button></Link>) : (
           <Link className="btn" to="/login"><button className='navbutton'> Log In </button></Link>)
           }
     </nav>

@@ -46,7 +46,25 @@
     border: 1px solid lightgrey;
 }
 
-
+.navbutton-signup{
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    font-weight: bold;
+    font-size:14px;
+    font-color:white;
+    right:20px;
+    background-color: rgb(255, 84, 27);
+    padding:10px;
+    padding-top: 7px;
+    padding-bottom:7px;
+    padding-left:15px;
+    padding-right:15px;
+    align-self: center;
+    text-decoration: none;
+    border-radius:5px;
+    border: 1px solid lightgrey;rgb(255, 84, 27)
+}
     
 
 .logo{
@@ -60,4 +78,9 @@
 .navbutton:hover{
     background:rgb(241, 241, 241);
     cursor:pointer;
+}
+
+.navbutton-signup:hover{
+    background: rgb(215, 68, 20);
+    cursor: pointer;
 }

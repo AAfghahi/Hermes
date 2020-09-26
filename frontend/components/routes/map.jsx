@@ -4,21 +4,26 @@ import MarkerManager from '../../util/marker_manager';
 
 const myLatlng = { lat: 40.6602, lng: -73.9690 };
 
-const getCoordsObj = latLng =>({
-    lat: latLng.lat(),
-    lng: latLng.lng()
-});
-
-
-
 class RouteShow extends React.Component{
     constructor(props){
         super(props);
         this.points = [];
-        this.createRoute.bind(this);
-        this.registerListeners.bind(this);
-        this.addMarker.bind(this);
-        this.addLatLang.bind(this);
+        this.state ={
+            imageUrl: '',
+            duration: 0,
+            distance: 0,
+            elevation: 500,
+            polyline: '',
+            origin:[]
+        };
+        this.createRoute = this.createRoute.bind(this);
+        this.registerListeners = this.registerListeners.bind(this);
+        this.addMarker = this.addMarker.bind(this);
+        this.addLatLang = this.addLatLang.bind(this);
+        this.listenforChange = this.listenForChange.bind(this);
+        this.createStaticUrl = this.createStaticUrl.bind(this);
+        this.findDistanceAndTime = this.findDistanceAndTime.bind(this);
+      
     }
 
     componentDidMount(){
@@ -39,21 +44,19 @@ class RouteShow extends React.Component{
             draggable: true,
             map: this.map,
             preserveViewport:true,
-            suppressMarkers:true, 
+            suppressMarkers:true,
             polylineOptions: border
         });
+        this.service = new google.maps.DistanceMatrixService();
         const map = this.map;
         this.directionsRenderer.setMap(map);
         this.registerListeners();
-        
-  
+        this.listenForChange();
     
     }
   
   
     registerListeners() {
-        
-       
         google.maps.event.addListener(this.map, 'click', (event)=>{
             this.addLatLang(event.latLng);
             this.addMarker();
@@ -80,16 +83,22 @@ class RouteShow extends React.Component{
                 strokeColor:'#D3D3D3'
             },
         });
-        this.createRoute();
         }
 
         addLatLang(location){
-
+          
             this.points.push({
                 location:location
-            });
-            
+            }); 
+            if(this.points.length === 1){
+                this.setState({
+                    origin: [this.points[0].location.lat(), this.points[0].location.lng()]
+                });
+            }
+            const state = this.state; //just to check 
+          
         }
+
         createRoute(){
             const _self = this;
             const waypnt = this.points.slice(1);
@@ -106,8 +115,45 @@ class RouteShow extends React.Component{
                 }
             });
         }
-     
+        
+        createStaticUrl(directions){
+            const route = directions.routes[0];
+            let image = `https://maps.googleapis.com/maps/api/staticmap?size=200x200`;
+            const color = `&path=color:red|weight:2|`
+            const polyline = `enc:${route.overview_polyline}`;
+            const key = `&key=${window.key}`;
+            image += color + polyline + key;
+            this.setState({
+                imageUrl: image,
+                polyline: polyline
+            });
+            
+        }
 
+        findDistanceAndTime(directions){
+            const route = directions.routes[0];
+            const duration = Math.floor(route.legs[0].duration.value/60);
+            const distance = route.legs[0].distance.value;
+            this.setState({
+                duration: duration,
+                distance: distance
+            });
+        
+        }
+
+        listenForChange(){
+            const _self = this;
+            this.directionsRenderer.addListener('directions_changed', function(){
+                const directions = _self.directionsRenderer.getDirections();
+                if(directions !== null){
+                    _self.createStaticUrl(directions);
+                    _self.findDistanceAndTime(directions);
+                }
+              
+            });
+        }
+
+       
     render(){
      
         return(
@@ -132,6 +178,6 @@ class RouteShow extends React.Component{
 
 
 
-export default RouteShow;
+export default Map;
 
 
