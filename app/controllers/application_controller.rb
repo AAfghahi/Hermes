@@ -6,6 +6,12 @@ class ApplicationController < ActionController::Base
         @current_user ||= User.find_by(session_token: session[:session_token]) #find_by_session_token?
     end
 
+    def ensure_logged_in
+        unless current_user
+            render json: { base: ['invalid credentials'] }, status: 401
+          end
+    end
+
     def logged_in?
         !!current_user
     end 

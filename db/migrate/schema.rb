@@ -10,23 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_27_042849) do
+ActiveRecord::Schema.define(version: 2020_09_26_152345) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "routes", force: :cascade do |t|
-    t.float "origin_lat", null: false
-    t.float "origin_lng", null: false
-    t.float "destination_lat", null: false
-    t.float "destination_lng", null: false
+    t.integer "origin_lat", null: false
+    t.integer "origin_lng", null: false
+    t.integer "destination_lat", null: false
+    t.integer "destination_lng", null: false
     t.string "route_name", null: false
     t.string "activity_type", null: false
     t.text "description", null: false
-    t.float "distance", null: false
+    t.integer "distance", null: false
     t.integer "user_id", null: false
     t.integer "elevation", null: false
-    t.float "estimated_time", null: false
+    t.integer "estimated_time", null: false
     t.string "encoded_polyline", null: false
     t.string "image_url", null: false
     t.datetime "created_at", null: false
@@ -45,11 +45,11 @@ ActiveRecord::Schema.define(version: 2020_09_27_042849) do
     t.string "gender"
     t.integer "weight"
     t.integer "height"
-    t.float "location_lat"
-    t.float "location_long"
-    t.integer "age"
+    t.decimal "location_lat"
+    t.decimal "location_long"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "age"
     t.index ["email"], name: "index_users_on_email"
     t.index ["session_token"], name: "index_users_on_session_token"
   end

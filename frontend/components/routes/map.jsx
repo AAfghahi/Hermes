@@ -4,7 +4,7 @@ import React from 'react';
 
 const myLatlng = { lat: 40.6602, lng: -73.9690 };
 
-class RouteShow extends React.Component{
+class Map extends React.Component{
     constructor(props){
         super(props);
         this.points = [];
@@ -126,8 +126,7 @@ class RouteShow extends React.Component{
             this.setState({
                 imageUrl: image,
                 polyline: polyline
-            });
-            debugger
+            });         
         }
 
         findDistanceAndTime(directions){
@@ -178,6 +177,6 @@ class RouteShow extends React.Component{
 
 
 
-export default RouteShow;
+export default Map;
 
 

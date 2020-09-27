@@ -1,0 +1,1 @@
+json.extract! route, :id, :origin_lat, :origin_lng, :destination_lat, :destination_lng, :route_name, :activity_type, :description, :distance, :user_id, :elevation, :estimated_time, :encoded_polyline, :image_url
