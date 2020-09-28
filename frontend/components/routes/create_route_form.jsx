@@ -4,7 +4,7 @@ import React from 'react';
 
 const myLatlng = { lat: 40.6602, lng: -73.9690 };
 
-class Map extends React.Component{
+class CreateRoute extends React.Component{
     constructor(props){
         super(props);
         this.points = [];
@@ -197,6 +197,6 @@ class Map extends React.Component{
 
 
 
-export default Map;
+export default CreateRoute;
 
 

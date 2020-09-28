@@ -4,8 +4,10 @@ import NavBar from './nav_bar/nav_bar_container';
 import Splash from './splash/splash_container';
 import LoginForm from './session_form/login_form_container';
 import Footer from './footer/footer';
-import Map from './routes/map';
+import Map from './routes/create_route_form';
 import SignUpFormContainer from './session_form/signup_form_container';
+import RouteIndexContainer from './routes/route_index_container';
+import RouteShowContainer from './routes/route_show_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 const App = () => (
  
@@ -15,10 +17,12 @@ const App = () => (
      <Footer/>
     </header>
     <Switch>
-    <Route exact path="/" component={Splash} />
+    <AuthRoute exact path="/" component={Splash} />
     <AuthRoute exact path="/signup" component={SignUpFormContainer} />
     <AuthRoute exact path="/login" component={LoginForm} />
-    <Route exact path="/show" component={Map} />
+    <ProtectedRoute exact path="/route/create" component={Map} />
+    <ProtectedRoute exact path="/routes" component={RouteIndexContainer} />
+    <Route exact path="/routes/:id" component={RouteShowContainer} />
     </Switch>
   
   </div>

@@ -67,7 +67,7 @@ test_route2 = Route.create!(
     activity_type:'BICYCLING',
     description:'went to Mr.Melons!',
     distance:1856,
-    user_id:2,
+    user_id:1,
     elevation:327,
     estimated_time: 6,
     encoded_polyline: 'eukwFvvjbM_@eHUgD}Ej@kC\kAPMoBaAuPs@{LI{Be@}HqAqJ}@{GcAqGe@kCaD`AeCbAk@cF',

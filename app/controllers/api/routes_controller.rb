@@ -1,4 +1,4 @@
-class Api::SessionsController < ApplicationController
+class Api::RoutesController < ApplicationController
     before_action :ensure_logged_in
 
     def index
