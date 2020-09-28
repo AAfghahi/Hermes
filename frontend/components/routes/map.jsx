@@ -9,12 +9,18 @@ class Map extends React.Component{
         super(props);
         this.points = [];
         this.state ={
+            routeName:'',
+            description:'',
+            activityType:'BICYCLING',
             imageUrl: '',
             duration: 0,
             distance: 0,
             elevation: 500,
             polyline: '',
-            origin:[]
+            origin_lat:0,
+            origin_lng: 0,
+            destination_lat:0,
+            destination_lng: 0
         };
         this.createRoute = this.createRoute.bind(this);
         this.registerListeners = this.registerListeners.bind(this);
@@ -23,7 +29,7 @@ class Map extends React.Component{
         this.listenforChange = this.listenForChange.bind(this);
         this.createStaticUrl = this.createStaticUrl.bind(this);
         this.findDistanceAndTime = this.findDistanceAndTime.bind(this);
-      
+  
     }
 
     componentDidMount(){
@@ -92,7 +98,13 @@ class Map extends React.Component{
             }); 
             if(this.points.length === 1){
                 this.setState({
-                    origin: [this.points[0].location.lat(), this.points[0].location.lng()]
+                    origin_lat: this.points[0].location.lat(),
+                    origin_lng: this.points[0].location.lng()
+                });
+            }else{
+                this.setState({
+                    destination_lat: location.lat(),
+                    destination_lng: location.lat()
                 });
             }
             const state = this.state; //just to check 
@@ -167,7 +179,15 @@ class Map extends React.Component{
                 
                 
                 </div>
-                
+               
+            
+            
+            {console.log(this.state.duration)}    
+            {console.log(this.state.imageUrl)}
+            {console.log(this.state.distance)}    
+            {console.log(this.state.polyline)}    
+
+
             </div>
             
         )
