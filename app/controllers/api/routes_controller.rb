@@ -23,9 +23,9 @@ class Api::RoutesController < ApplicationController
     def update 
         @route = Route.find(params[:id])
         user = User.find_by(params[:user_id])
-        debugger
+ 
         if user == current_user && @route.update(route_params)
-            render :index
+            render :show
         else
             render json: @route.errors.full_messages, status: 422
         end

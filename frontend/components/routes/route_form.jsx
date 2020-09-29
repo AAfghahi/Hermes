@@ -1,8 +1,8 @@
 import React from 'react';
-import Modal from '../modal/modal';
 
 
-const myLatlng = { lat: 40.6602, lng: -73.9690 };
+
+
 
 class CreateRoute extends React.Component{
     constructor(props){
@@ -18,16 +18,38 @@ class CreateRoute extends React.Component{
         this.createStaticUrl = this.createStaticUrl.bind(this);
         this.findDistanceAndTime = this.findDistanceAndTime.bind(this);
         this.handleButtonClick = this.handleButtonClick.bind(this);
-        this.handleRedirectToShow = this.handleRedirectToShow.bind(this);
+       
+  
     }
 
    
 
     componentDidMount(){
+        let myLatlng = {};
+        let decodedPath = [];
+        if(this.state.encoded_polyline !== ''){
+            decodedPath = google.maps.geometry.encoding.decodePath(this.state.encoded_polyline);
+        }
+        
+        if(this.state.encoded_polyline !== '') {  
+            this.points.push({location:decodedPath[0]});
+            this.points.push({location:decodedPath[Math.floor(decodedPath.length/3)]});
+            this.points.push({location:decodedPath[Math.floor(decodedPath.length * 0.66)]});
+            this.points.push({location:decodedPath[decodedPath.length -1]});    
+        }
+        if(this.state.origin_lat === 0){
+            myLatlng = { lat: 40.6602, lng: -73.9690 };
+        }else{
+            myLatlng = {lat: this.points[0].location.lat(), lng:this.points[0].location.lng()};
+        }
+
         this.map = new google.maps.Map(
             this.mapdiv,
             {zoom:14, center: myLatlng}
         );
+        
+
+     
 
         const border = {
             strokeColor:'#FF4500',
@@ -46,10 +68,10 @@ class CreateRoute extends React.Component{
         });
         this.service = new google.maps.DistanceMatrixService();
         const map = this.map;
+        if(typeof this.points[0] !== 'undefined') this.createPath();
         this.directionsRenderer.setMap(map);
         this.registerListeners();
         this.listenForChange();
-    
     }
   
   
@@ -104,13 +126,14 @@ class CreateRoute extends React.Component{
         createPath(){
             const _self = this;
             const waypnt = this.points.slice(1);
+          
             const request ={
                 origin: this.points[0].location,
-                destination: this.points[this.points.length -1],
+                destination: this.points[this.points.length -1].location,
                 waypoints: waypnt.map(point => ({location: point.location})),
                 travelMode: 'BICYCLING'
             };
-
+            debugger
             this.directionsService.route(request, function(result,status){
                 if(status === 'OK'){
                     _self.directionsRenderer.setDirections(result);
@@ -122,9 +145,10 @@ class CreateRoute extends React.Component{
             const route = directions.routes[0];
             let image = `https://maps.googleapis.com/maps/api/staticmap?size=200x200`;
             const color = `&path=color:red|weight:2|`
-            const polyline = `enc:${route.overview_polyline}`;
+            const enc_polyline = `enc:${route.overview_polyline}`;
+            const polyline = route.overview_polyline;
             const key = `&key=${window.key}`;
-            image += color + polyline + key;
+            image += color + enc_polyline + key;
             this.setState({
                 image_url: image,
                 encoded_polyline: polyline
@@ -164,7 +188,7 @@ class CreateRoute extends React.Component{
        
         handleSubmit(e){
             e.preventDefault();
-            this.props.action(this.state);
+            this.props.action(this.state).then(() => this.props.history.push('/routes'));
             
         }
 
@@ -174,10 +198,6 @@ class CreateRoute extends React.Component{
             });
         }
         
-        handleRedirectToShow(){
-            this.props.history.push('/routes')
-        }
-       
     render(){
         
         return(
@@ -197,7 +217,7 @@ class CreateRoute extends React.Component{
                                         </label>
                                         <div className="modal-buttons">
                                         <button onClick={this.handleButtonClick}>Edit Route</button>  
-                                        <button type="submit" onClick={this.handleRedirectToShow}>Save to My Routes</button> 
+                                        <button type="submit" >Save to My Routes</button> 
                                         </div>
                                     </form>
                         </div>

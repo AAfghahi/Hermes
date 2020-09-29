@@ -8,12 +8,11 @@ import Map from './routes/create_route_container';
 import SignUpFormContainer from './session_form/signup_form_container';
 import RouteIndexContainer from './routes/route_index_container';
 import RouteShowContainer from './routes/route_show_container';
-import Modal from './modal/modal';
+import RouteEditContainer from './routes/edit_route_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 const App = () => (
  
   <div className='app'>
-    <Modal/>
     <header>
      <NavBar/>
      <Footer/>
@@ -24,7 +23,8 @@ const App = () => (
     <AuthRoute exact path="/login" component={LoginForm} />
     <ProtectedRoute exact path="/routes/create" component={Map} />
     <ProtectedRoute exact path="/routes" component={RouteIndexContainer} />
-    <Route exact path="/routes/:id" component={RouteShowContainer} />
+    <ProtectedRoute exact path="/routes/:id" component={RouteShowContainer} />
+    <ProtectedRoute exact path="/routes/:id/edit" component={RouteEditContainer}/>
     </Switch>
   
   </div>

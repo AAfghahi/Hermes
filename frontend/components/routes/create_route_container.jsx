@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { openModal, closeModal, closeAndSaveModal } from '../../actions/modal_actions'
 import { createRoute } from '../../actions/routes_actions';
-import CreateRoute from './create_route_form';
+import RouteForm from './route_form';
 import {withRouter} from 'react-router-dom';
 
 
@@ -25,10 +25,8 @@ const mapStateToProps = state =>({
 });
 
 const mapDispatchToProps = dispatch =>({
-  action: route => dispatch(createRoute(route)),
-  closeModal:()=>dispatch(closeModal()),
-  openModal:(modal)=>dispatch(openModal(modal))
+  action: route => dispatch(createRoute(route))
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CreateRoute));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(RouteForm));
 
