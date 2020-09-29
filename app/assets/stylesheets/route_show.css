@@ -1,0 +1,65 @@
+.show-container{
+    display:flex;
+}
+
+.route-title{
+    margin-bottom:10px;
+}
+
+.map-pic{
+    margin-top: 20px;
+    width:600px;
+    height:350px;
+}
+
+.top-container{
+    display: flex;
+    align-items: right;
+    flex-direction: column;
+    text-align: left;
+}
+.user-title{
+    font-weight:bold;
+    justify-item: center;
+
+    margin-bottom: 0px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;;
+}
+
+.words-container{
+    margin-left:50px;
+    width:35%;
+}
+
+.item-description{
+    border:none;
+    resize:none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:15px;
+}
+
+.item-description:focus{
+    border:none;
+    outline:none;
+    
+}
+
+.item-list-container{
+    list-style: none;
+    height: 25%;
+    width:100%;
+    margin:0;
+    overflow:hidden;
+    padding:0;
+}
+
+.info-items{
+    width:20%;
+    float:left;
+}
+
+.index-item-time-show{
+    margin-top:0px;
+    font-size: 20px;
+    margin-bottom:0px;
+}

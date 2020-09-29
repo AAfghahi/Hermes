@@ -10,9 +10,12 @@ class RouteIndex extends React.Component{
     render(){
         return(
             <div>
-            <h1>My Routes</h1>
-            <Link className='new_route_link' to='/routes/create'><button className='new_route_button'>Create New Route</button></Link>
-            <ul>
+                <div className='index-list-title' > 
+                    <h1 className='index-title'>My Routes</h1>
+                    <Link className='new_route_link' to='/routes/create'><button className='new_route_button'>Create New Route</button></Link>
+                </div>
+           
+            <ul className='index-list'>
                 {this.props.routes.map(route=>(
                     <RouteIndexItem
                         route={route}

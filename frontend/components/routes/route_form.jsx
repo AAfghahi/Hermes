@@ -1,9 +1,5 @@
 import React from 'react';
 
-
-
-
-
 class CreateRoute extends React.Component{
     constructor(props){
         super(props);
@@ -21,8 +17,6 @@ class CreateRoute extends React.Component{
        
   
     }
-
-   
 
     componentDidMount(){
         let myLatlng = {};
@@ -48,14 +42,10 @@ class CreateRoute extends React.Component{
             {zoom:14, center: myLatlng}
         );
         
-
-     
-
         const border = {
             strokeColor:'#FF4500',
             strokeOpacity: 0.5,
             strokeWeight: 7,
-        
         };
 
         this.directionsService = new google.maps.DirectionsService();

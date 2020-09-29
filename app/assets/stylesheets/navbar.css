@@ -40,6 +40,7 @@
     padding-bottom:7px;
     padding-left:15px;
     padding-right:15px;
+    margin-right:5px;
     align-self: center;
     text-decoration: none;
     border-radius:5px;
@@ -47,7 +48,6 @@
 }
 
 .navbutton-signup{
-    color: black;
     font-family: Arial, Helvetica, sans-serif;
     text-decoration: none;
     font-weight: bold;
