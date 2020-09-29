@@ -7,7 +7,9 @@ class Api::RoutesController < ApplicationController
     end
 
     def create
+      
         @route = Route.new(route_params)
+        
         @route.user_id = current_user.id
 
         if @route.save
@@ -21,6 +23,7 @@ class Api::RoutesController < ApplicationController
     def update 
         @route = Route.find(params[:id])
         user = User.find_by(params[:user_id])
+        debugger
         if user == current_user && @route.update(route_params)
             render :index
         else

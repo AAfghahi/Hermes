@@ -11,7 +11,7 @@ class RouteIndex extends React.Component{
         return(
             <div>
             <h1>My Routes</h1>
-            <Link className='new_route_link' to='/route/create'><button className='new_route_button'>Create New Route</button></Link>
+            <Link className='new_route_link' to='/routes/create'><button className='new_route_button'>Create New Route</button></Link>
             <ul>
                 {this.props.routes.map(route=>(
                     <RouteIndexItem

@@ -54,7 +54,7 @@ test_route  = Route.create!(
     elevation:500,
     estimated_time:6,
     encoded_polyline:'_xewF|`lbMUhB`AVxA^TFBYRwA\qC@Wr@_GAUHaDl@_Zf@uTqDO_@hPQvJOnGIzDMbGAj@nD~@lBd@l@PzA^b@?pCM~Hg@lQ{@vHa@rCQVxJRtI~AYlAOEQCYIkD]_NsCNqId@}G\wQ~@mEVaCLMCsBg@qHmB_J}B?Vs@xFq@fFE`@nD~@Hu@',
-    image_url:'https://maps.googleapis.com/maps/api/staticmap?size=200x200&path=color:red|weight:2|enc:_xewF|`lbMUhB`AVxA^TFBYRwA\qC@Wr@_GAUHaDl@_Zf@uTqDO_@hPQvJOnGIzDMbGAj@nD~@lBd@l@PzA^b@?pCM~Hg@lQ{@vHa@rCQVxJRtI~AYlAOEQCYIkD]_NsCNqId@}G\wQ~@mEVaCLMCsBg@qHmB_J}B?Vs@xFq@fFE`@nD~@Hu@&key=AIzaSyBL2hA828NMLjUGVbZlOC3SFjBxGF1P0gs',
+    image_url:'https://maps.googleapis.com/maps/api/staticmap?size=200x200&path=color:red|weight:2|enc:_xewF|`lbMUhB`AVxA^TFBYRwA\qC@Wr@_GAUHaDl@_Zf@uTqDO_@hPQvJOnGIzDMbGAj@nD~@lBd@l@PzA^b@?pCM~Hg@lQ{@vHa@rCQVxJRtI~AYlAOEQCYIkD]_NsCNqId@}G\wQ~@mEVaCLMCsBg@qHmB_J}B?Vs@xFq@fFE`@nD~@Hu@&key=',
 )
 
 test_route2 = Route.create!(
@@ -71,5 +71,5 @@ test_route2 = Route.create!(
     elevation:327,
     estimated_time: 6,
     encoded_polyline: 'eukwFvvjbM_@eHUgD}Ej@kC\kAPMoBaAuPs@{LI{Be@}HqAqJ}@{GcAqGe@kCaD`AeCbAk@cF',
-    image_url: 'https://maps.googleapis.com/maps/api/staticmap?size=200x200&path=color:red|weight:2|enc:eukwFvvjbM_@eHUgD}Ej@kC\kAPMoBaAuPs@{LI{Be@}HqAqJ}@{GcAqGe@kCaD`AeCbAk@cF&key=AIzaSyBL2hA828NMLjUGVbZlOC3SFjBxGF1P0gs'
+    image_url: 'https://maps.googleapis.com/maps/api/staticmap?size=200x200&path=color:red|weight:2|enc:eukwFvvjbM_@eHUgD}Ej@kC\kAPMoBaAuPs@{LI{Be@}HqAqJ}@{GcAqGe@kCaD`AeCbAk@cF&key='
 )

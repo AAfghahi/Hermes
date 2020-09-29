@@ -1,17 +1,34 @@
 import { connect } from 'react-redux';
-
-import { createRoute } from '../../actions/route_actions';
+import { openModal, closeModal, closeAndSaveModal } from '../../actions/modal_actions'
+import { createRoute } from '../../actions/routes_actions';
 import CreateRoute from './create_route_form';
+import {withRouter} from 'react-router-dom';
 
 
 
-otherForm: (
-    <button onClick={() => dispatch(openModal('signup'))}>
-      Signup
-    </button>
-  ),
+const mapStateToProps = state =>({
+  route:{
+      route_name:'',
+      description:'',
+      activity_type:'BICYCLING',
+      image_url:'',
+      estimated_time: 0,
+      distance: 0,
+      elevation: 500,
+      encoded_polyline: '',
+      origin_lat:0,
+      origin_lng: 0,
+      destination_lat:0,
+      destination_lng: 0,
+      show:false
+  },
+});
 
-  closeModal: () => dispatch(closeModal())
+const mapDispatchToProps = dispatch =>({
+  action: route => dispatch(createRoute(route)),
+  closeModal:()=>dispatch(closeModal()),
+  openModal:(modal)=>dispatch(openModal(modal))
+});
 
-
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CreateRoute));
 

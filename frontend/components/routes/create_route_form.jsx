@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Modal from '../modal/modal';
 
 
 const myLatlng = { lat: 40.6602, lng: -73.9690 };
@@ -8,29 +8,20 @@ class CreateRoute extends React.Component{
     constructor(props){
         super(props);
         this.points = [];
-        this.state ={
-            routeName:'',
-            description:'',
-            activityType:'BICYCLING',
-            imageUrl: '',
-            duration: 0,
-            distance: 0,
-            elevation: 500,
-            polyline: '',
-            origin_lat:0,
-            origin_lng: 0,
-            destination_lat:0,
-            destination_lng: 0
-        };
-        this.createRoute = this.createRoute.bind(this);
+        this.state = this.props.route;
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.createPath = this.createPath.bind(this);
         this.registerListeners = this.registerListeners.bind(this);
         this.addMarker = this.addMarker.bind(this);
         this.addLatLang = this.addLatLang.bind(this);
         this.listenforChange = this.listenForChange.bind(this);
         this.createStaticUrl = this.createStaticUrl.bind(this);
         this.findDistanceAndTime = this.findDistanceAndTime.bind(this);
-  
+        this.handleButtonClick = this.handleButtonClick.bind(this);
+        this.handleRedirectToShow = this.handleRedirectToShow.bind(this);
     }
+
+   
 
     componentDidMount(){
         this.map = new google.maps.Map(
@@ -66,7 +57,7 @@ class CreateRoute extends React.Component{
         google.maps.event.addListener(this.map, 'click', (event)=>{
             this.addLatLang(event.latLng);
             this.addMarker();
-            this.createRoute();
+            this.createPath();
         });
 
     }
@@ -103,15 +94,14 @@ class CreateRoute extends React.Component{
                 });
             }else{
                 this.setState({
-                    destination_lat: location.lat(),
-                    destination_lng: location.lat()
-                });
-            }
-            const state = this.state; //just to check 
-          
+                    destination_lat: this.points[this.points.length -1].location.lat(),
+                    destination_lng: this.points[this.points.length -1].location.lng()
+                })
+            }  
+            
         }
 
-        createRoute(){
+        createPath(){
             const _self = this;
             const waypnt = this.points.slice(1);
             const request ={
@@ -136,17 +126,18 @@ class CreateRoute extends React.Component{
             const key = `&key=${window.key}`;
             image += color + polyline + key;
             this.setState({
-                imageUrl: image,
-                polyline: polyline
-            });         
+                image_url: image,
+                encoded_polyline: polyline
+            }); 
+              
         }
 
         findDistanceAndTime(directions){
             const route = directions.routes[0];
-            const duration = Math.floor(route.legs[0].duration.value/60);
-            const distance = route.legs[0].distance.value;
+            let duration = this.state.estimated_time + Math.floor(route.legs[0].duration.value/60);
+            let distance = this.state.distance + route.legs[0].distance.value;
             this.setState({
-                duration: duration,
+                estimated_time: duration,
                 distance: distance
             });
         
@@ -159,17 +150,61 @@ class CreateRoute extends React.Component{
                 if(directions !== null){
                     _self.createStaticUrl(directions);
                     _self.findDistanceAndTime(directions);
+                
                 }
               
             });
         }
 
+        update(field){
+            return e => this.setState({
+                [field]: e.target.value
+            });
+        }
+       
+        handleSubmit(e){
+            e.preventDefault();
+            this.props.action(this.state);
+            
+        }
+
+        handleButtonClick(){
+            this.setState({
+                show: !this.state.show
+            });
+        }
+        
+        handleRedirectToShow(){
+            this.props.history.push('/routes')
+        }
        
     render(){
-     
+        
         return(
             <div className='route_show_container'>
-               
+                <div className='fake_modal_container'>
+                    <button className='fake_modal' onClick={this.handleButtonClick}>Save</button>
+                        {this.state.show && (
+                        <div className='Dropdown'>
+                                    <h3>My Route</h3>
+                                    <form onSubmit={this.handleSubmit}>
+                                        <label> <div className="modal-text">Route name:</div>
+                                            
+                                            <input type="text" value={this.state.route_name} placeholder="Route name" onChange={this.update('route_name')}/>
+                                        </label>
+                                        <label> <div className="modal-text">Description:</div>
+                                            <textarea value={this.state.description} placeholder="Add a description of your route!" onChange={this.update('description')}></textarea>
+                                        </label>
+                                        <div className="modal-buttons">
+                                        <button onClick={this.handleButtonClick}>Edit Route</button>  
+                                        <button type="submit" onClick={this.handleRedirectToShow}>Save to My Routes</button> 
+                                        </div>
+                                    </form>
+                        </div>
+                        )}
+                   
+
+                </div>
                 <div className='sidebar'>
                     <h1>this will be the sidebar</h1>
                 </div>
@@ -179,15 +214,7 @@ class CreateRoute extends React.Component{
                 
                 
                 </div>
-               
-            
-            
-            {console.log(this.state.duration)}    
-            {console.log(this.state.imageUrl)}
-            {console.log(this.state.distance)}    
-            {console.log(this.state.polyline)}    
-
-
+                
             </div>
             
         )

@@ -7,7 +7,7 @@ class RouteIndexItem extends React.Component{
         const {image_url, distance, estimated_time, route_name, elevation, created_at, updated_at} = this.props.route;
         return(
             <li>
-                <img src={image_url}/>
+                <img src={image_url + 'AIzaSyBL2hA828NMLjUGVbZlOC3SFjBxGF1P0gs'}/>
                 <div>
                 <Link to={`/routes/${this.props.route.id}`}> {route_name} </Link>
                 <p>{Math.round((distance/5280)*100)/100}mi {elevation}ft </p>

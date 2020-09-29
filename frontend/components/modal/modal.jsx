@@ -1,42 +1,50 @@
 import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
+import CreateRouteForm from '../routes/create_route_modal';
+
+import {createRoute} from '../../actions/routes_actions';
 
 
-function Modal({modal, closeModal}) {
-  if (!modal) {
-    return null;
-  }
-  let component;
-  switch (modal) {
-    case 'save':
-      component = <CreateRouteContainer/>;
-      break;
-    // case 'edit':
-    //   component = <SignupFormContainer />;
-    //   break;
-    default:
+class Modal extends React.Component{
+  
+  render(){
+    const { closeModal, modal, routeData, routeInfo } = this.props;
+    if (!modal) {
       return null;
-  }
-  return (
-    <div className="modal-background" onClick={closeModal}>
-      <div className="modal-child" onClick={e => e.stopPropagation()}>
-        { component }
+    }
+
+    let component;
+    switch (modal) {
+      case 'create':
+        component = <CreateRouteForm route={routeData} route_name={routeInfo} closeModal={closeModal}/>;
+        break;
+      case 'update':
+        component = <UpdateRouteContainer route={routeData} route_name={routeInfo} closeModal={closeModal}/>;
+        break;
+      default:
+        return null;
+    }
+    return (
+      <div className="modal-background" onClick={closeModal}>
+        <div className="modal-child" onClick={e => e.stopPropagation()}>
+          { component }
+        </div>
       </div>
-    </div>
-  );
+    );  
+  }
 }
 
 const mapStateToProps = state => {
-  return {
-    modal: state.ui.modal
+    return {
+      modal: state.ui.modal,
+    };
   };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-    closeModal: () => dispatch(closeModal())
+  
+  const mapDispatchToProps = dispatch => {
+    return {
+      closeModal: () => dispatch(closeModal())
+    };
   };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Modal);
+  
+  export default connect(mapStateToProps, mapDispatchToProps)(Modal);

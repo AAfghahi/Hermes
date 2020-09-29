@@ -3,10 +3,10 @@ import RouteShow from './route_show';
 import {fetchRoute, updateRoute} from '../../actions/routes_actions';
 
 const mapStateToProps = (state, ownProps) =>{
-
+   
     return({
         user: state.entities.users[state.session.id],
-        route: state.entities.routes[ownProps.match.params.routeId],
+        route: state.entities.routes[ownProps.match.params.id],
         
     });
     

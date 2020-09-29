@@ -6,11 +6,11 @@ class RouteShow extends React.Component{
 
     componentDidMount(){
 
-        this.props.fetchRoute(this.props.match.params.routeId);
+        this.props.fetchRoute(this.props.match.params.id);
     }
 
     render(){
-
+       
        if (typeof this.props.route === 'undefined'){
            return null;
        }else{
@@ -20,7 +20,7 @@ class RouteShow extends React.Component{
             <Link to={`/routes/${this.props.route.id}/edit`}><button>Edit</button></Link>
             <button onClick={()=> this.props.deleteRoute(this.props.route.id)}>Delete</button>
             <div>
-                <img src={this.props.route.image_url}/>
+                <img src={this.props.route.image_url + 'AIzaSyBL2hA828NMLjUGVbZlOC3SFjBxGF1P0gs'}/>
                 <div>
                     <label>By {this.props.user.first_name} {this.props.user.last_name}
                     <p>Created on {formatDate(this.props.route.created_at)}</p>

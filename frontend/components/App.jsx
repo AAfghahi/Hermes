@@ -4,14 +4,16 @@ import NavBar from './nav_bar/nav_bar_container';
 import Splash from './splash/splash_container';
 import LoginForm from './session_form/login_form_container';
 import Footer from './footer/footer';
-import Map from './routes/create_route_form';
+import Map from './routes/create_route_container';
 import SignUpFormContainer from './session_form/signup_form_container';
 import RouteIndexContainer from './routes/route_index_container';
 import RouteShowContainer from './routes/route_show_container';
+import Modal from './modal/modal';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 const App = () => (
  
   <div className='app'>
+    <Modal/>
     <header>
      <NavBar/>
      <Footer/>
@@ -20,7 +22,7 @@ const App = () => (
     <AuthRoute exact path="/" component={Splash} />
     <AuthRoute exact path="/signup" component={SignUpFormContainer} />
     <AuthRoute exact path="/login" component={LoginForm} />
-    <ProtectedRoute exact path="/route/create" component={Map} />
+    <ProtectedRoute exact path="/routes/create" component={Map} />
     <ProtectedRoute exact path="/routes" component={RouteIndexContainer} />
     <Route exact path="/routes/:id" component={RouteShowContainer} />
     </Switch>
