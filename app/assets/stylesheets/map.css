@@ -23,3 +23,18 @@
     flex-direction: column;
 }
 
+.stats-footer{
+    z-index:5;
+    list-style: none;
+    width:100%;
+    overflow:hidden;
+    margin:0;
+    height:10%;
+    bottom:0;
+    left:0;
+    position:fixed;
+    background:rgb(255,255,255);
+    border:1px solid lightgrey;
+    box-shadow:1px -1px 9px -1px;
+}
+

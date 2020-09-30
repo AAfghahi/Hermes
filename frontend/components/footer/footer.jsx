@@ -1,12 +1,12 @@
 import React from 'react';
-import {Link, useLocation} from 'react-router-dom';
+import {Link, useLocation, withRouter} from 'react-router-dom';
 
 
 const Footer = (route)=>{
 
 
     const location = useLocation();
-    if(location.pathname === '/routes/create' || location.pathname === `/routes/${route.id}/edit`){
+    if(location.pathname === '/routes/create' || location.pathname === '/edit'){
         return null;
     }else{
     return(
@@ -29,4 +29,4 @@ const Footer = (route)=>{
 
 }
    
-export default Footer;
+export default withRouter(Footer);

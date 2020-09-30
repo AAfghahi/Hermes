@@ -190,6 +190,7 @@ class CreateRoute extends React.Component{
     render(){
         
         return(
+        <div>    
             <div className='route_show_container'>
                 
             
@@ -243,7 +244,29 @@ class CreateRoute extends React.Component{
                         </div>
                 </div>
                 
+                
             </div>
+
+            <footer className='route-footer'>
+            <ul className='stats-footer'>
+                <li className='info-items'>
+                    <h1 className='item-descriptor'>Distance</h1>
+                    <h1 className='item-numbers'>{Math.round((this.state.distance/5280)*100)/100} mi</h1>
+                </li>
+
+                <li className='info-items'>
+                    <h1 className='item-descriptor'>Elevation</h1>
+                    <h1 className='item-numbers'>{this.state.elevation} ft</h1>
+                </li>
+                <li className='info-items'>
+                    <h1 className='item-descriptor'>Est.Moving Time</h1>
+                    <h1 className='index-item-time'>{Math.round(this.state.estimated_time/60)}:{('0'+this.state.estimated_time%60).slice(-2)}</h1>
+                </li>
+            </ul>
+
+
+            </footer>
+        </div>
             
         )
     }

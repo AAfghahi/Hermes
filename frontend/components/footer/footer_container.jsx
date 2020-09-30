@@ -4,7 +4,7 @@ import Footer from './footer';
 
 const mapStateToProps = ({ session, entities: { routes } }) => {
   return {
-    route: state.entities.routes[ownProps.match.params.id]
+    route: routes[]
   };
 };
 
