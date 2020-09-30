@@ -25,8 +25,6 @@
     align-self:flex-end;
 }
 
-
-
 .navbutton{
     color: black;
     font-family: Arial, Helvetica, sans-serif;
@@ -90,13 +88,13 @@
     border-right:1px solid lightgrey;
     border-left:1px solid lightgrey;
     z-index:2;
-    border-bottom: none;
-    border
+    border-bottom: 5px solid white;
 }
 
 .navbar-dropdown:hover .navbar-content{
     display:block;
-    border-top:none;
+    top:41px;
+    border-top: 1px solid lightgrey;
     border-right:1px solid lightgrey;
     border-left:1px solid lightgrey;
     border-bottom:1px solid lightgrey;
@@ -121,6 +119,8 @@
     border:1px solid rgb(255, 84, 27);
     border-radius:15px;
     margin-bottom:5px;
+    float:right;
+    position:relative;
 }
 
 .add-dropdown-button:hover{
@@ -130,9 +130,9 @@
 }
 
 .add-content{
+    top:10px;
     display:none;
-    position:absolute;
-    z-index:2;
+    z-index:4;
   
 }
 
@@ -140,6 +140,7 @@
     border-right:1px solid rgb(224, 218, 218);
     border-left:1px solid rgb(224, 218, 218);
     border-top:1px solid rgb(224, 218, 218);
+    border-bottom:2px solid white;
 }
 
 .logout-create-dropdown:hover .add-content{
@@ -172,7 +173,6 @@
 .add-button{
     text-decoration:none;
     border:none;
-    
     font-family: Arial, Helvetica, sans-serif;
     font-size:13px;
     background:white;
@@ -207,12 +207,24 @@
     border-bottom:1px solid rgb(224, 218, 218);
 }
 
+
+
+
+
+
+
 .droplink{
     text-decoration: none;
+    color:black;
     font-family: Arial, Helvetica, sans-serif;
     font-size:13px;
     background:white;
     z-index:2;
     padding:2px;
     width:100%;
+}
+
+.navbar-linkname{
+    text-decoration: none;
+    color:black;
 }

@@ -30,21 +30,22 @@ export default ({ currentUser, logout }) => {
         </div>
         
           <div className='navbar-content'>
-            <Link className='navbar-links'>Activity Feed</Link>
-            <br/>
-            <Link className='navbar-links'>My Workouts</Link>
-            <br/>
-            <Link className='navbar-links' to='/routes'> My Routes</Link>
+            <p className='navbar-links'><Link className='navbar-linkname'>Activity Feed</Link></p>
+            <p className='navbar-links'><Link className='navbar-linkname'>My Workouts</Link></p>
+            <p className='navbar-links'><Link className='navbar-linkname' to='/routes'> My Routes</Link></p>
           </div>
       </div>  
 
-      <div className='logout-create-dropdown'>
-        <button className='add-dropdown-button'> + </button>
+        
+          <div className='logout-create-dropdown'>
+        <button className='add-dropdown-button'> +</button>
           <div className='add-content'>
             <button className='add-button'><Link className='droplink' to='/routes/create'>Create a Route</Link></button>
               
             <button className='add-button' onClick={logout}>Log Out</button>
           </div>
+
+          
       </div>
       
     </nav>
