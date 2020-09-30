@@ -91,7 +91,7 @@
     color:white;
     right:20px;
     font-size: 15px;
-    background-color: rgb(255, 84, 27);
+    background-color:rgb(255, 84, 27);
     padding:10px;
     padding-top: 7px;
     padding-bottom:7px;
@@ -100,7 +100,7 @@
     align-self: center;
     text-decoration: none;
     border-radius:5px;
-    border: 1px solid lightgrey;rgb(255, 84, 27);
+    border:1px solid rgb(255, 84, 27);
     margin-bottom: 25px;
 }
 
