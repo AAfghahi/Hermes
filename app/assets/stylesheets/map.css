@@ -1,8 +1,9 @@
 .map{
-    
+    top:0px;
     width:100%;
     height:600px;
     visibility: visible;
+    z-index: 1;
 }
 
 .route_show_container{

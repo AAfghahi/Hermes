@@ -19,8 +19,9 @@ export default ({ currentUser, logout }) => {
   );
 
   const loggedIn = (
-    <nav className='innerbar'>
 
+    <nav className='innerbar'>
+      <div className='left-navbar'>
       <a href="/"> <img className='logo' src={window.logoURL} /></a>
 
       <div className='navbar-dropdown'>
@@ -35,7 +36,7 @@ export default ({ currentUser, logout }) => {
             <p className='navbar-links'><Link className='navbar-linkname' to='/routes'> My Routes</Link></p>
           </div>
       </div>  
-
+      </div>
         
           <div className='logout-create-dropdown'>
         <button className='add-dropdown-button'> +</button>
