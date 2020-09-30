@@ -135,17 +135,13 @@
   
 }
 
-.logout-create-dropdown:hover{
-    border-right:1px solid rgb(224, 218, 218);
-    border-left:1px solid rgb(224, 218, 218);
-    border-top:1px solid rgb(224, 218, 218);
-    border-bottom:2px solid white;
-}
 
 .logout-create-dropdown:hover .add-content{
     display:block;
     position:relative;
+    
 }
+
 
 .activity-dropdown{
     border:none;
@@ -192,10 +188,15 @@
 .logout-create-dropdown:hover .add-button{
     border-right:1px solid rgb(224, 218, 218);
     border-left:1px solid rgb(224, 218, 218);
+    
 }
 
 .logout-create-dropdown:hover :last-child{
     border-bottom:1px solid rgb(224, 218, 218);
+}
+
+.logout-create-dropdown:hover :first-child{
+    border-top:1px solid rgb(224, 218, 218);
 }
 
 .add-button:hover .droplink{
