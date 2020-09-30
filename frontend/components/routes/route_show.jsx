@@ -3,14 +3,15 @@ import {Link} from 'react-router-dom';
 import {formatDate} from '../../util/date_utils';
 
 class RouteShow extends React.Component{
+  
 
     componentDidMount(){
 
         this.props.fetchRoute(this.props.match.params.id);
     }
-
+   
     render(){
-       
+     
        if (typeof this.props.route === 'undefined'){
            return null;
        }else{
@@ -18,7 +19,7 @@ class RouteShow extends React.Component{
         <div>
             <h1 className='route-title'>{this.props.route.route_name}</h1>
             <Link to={`/routes/${this.props.route.id}/edit`}><button className='navbutton'>Edit</button></Link>
-            <button className='navbutton' onClick={()=> this.props.deleteRoute(this.props.route.id)}>Delete</button>
+            <Link to='/routes'><button className='navbutton' onClick={()=> this.props.deleteRoute(this.props.route.id)}>Delete</button></Link>
             <div className='show-container'>
                 <img className='map-pic' src={this.props.route.image_url + window.key}/>
                 <div className='words-container'>

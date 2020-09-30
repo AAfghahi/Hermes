@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, useLocation } from "react-router-dom";
 import NavBar from './nav_bar/nav_bar_container';
 import Splash from './splash/splash_container';
 import LoginForm from './session_form/login_form_container';

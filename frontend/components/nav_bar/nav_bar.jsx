@@ -21,8 +21,32 @@ export default ({ currentUser, logout }) => {
   const loggedIn = (
     <nav className='innerbar'>
 
-      <a href="/"> <img className='logo' src={window.logoURL} /></a>  
-      <button className='navbutton' onClick={logout}>Log Out</button>
+      <a href="/"> <img className='logo' src={window.logoURL} /></a>
+
+      <div className='navbar-dropdown'>
+        <div className='dashboard'>
+        <label> Dashboard </label>
+        <select className='activity-dropdown'></select>
+        </div>
+        
+          <div className='navbar-content'>
+            <Link className='navbar-links'>Activity Feed</Link>
+            <br/>
+            <Link className='navbar-links'>My Workouts</Link>
+            <br/>
+            <Link className='navbar-links' to='/routes'> My Routes</Link>
+          </div>
+      </div>  
+
+      <div className='logout-create-dropdown'>
+        <button className='add-dropdown-button'> + </button>
+          <div className='add-content'>
+            <button className='add-button'><Link className='droplink' to='/routes/create'>Create a Route</Link></button>
+              
+            <button className='add-button' onClick={logout}>Log Out</button>
+          </div>
+      </div>
+      
     </nav>
   )
 

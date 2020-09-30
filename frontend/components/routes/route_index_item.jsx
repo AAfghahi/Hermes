@@ -10,21 +10,21 @@ class RouteIndexItem extends React.Component{
                 <img className='index-image' src={image_url + window.key}/>
                 <div>
                 <Link to={`/routes/${this.props.route.id}`} className='index-item-link'> {route_name} </Link>
-                <p>
+                <div>
                     <ul className='item-list'>
                         <li className='info-box'>
-                            <p className='item-numbers'>{Math.round((distance/5280)*100)/100} mi</p> 
-                            <p className='item-descriptor'>Distance</p> 
+                            <h1 className='item-numbers'>{Math.round((distance/5280)*100)/100} mi</h1> 
+                            <h1 className='item-descriptor'>Distance</h1> 
                         </li>
 
                         <li className='info-box'>
-                            <li>
-                                <p className='item-numbers'>{elevation} ft</p>
-                                <p className='item-descriptor'>Elevation Gain</p> 
-                            </li>
+                            <div>
+                                <h1 className='item-numbers'>{elevation} ft</h1>
+                                <h1 className='item-descriptor'>Elevation Gain</h1> 
+                            </div>
                         </li>
                     </ul>
-                </p>
+                </div>
               
                 <p className='item-descriptor'>Est.Moving Time</p> 
         <p className='index-item-time'>{Math.round(estimated_time/60)}:{('0'+estimated_time%60).slice(-2)}</p>

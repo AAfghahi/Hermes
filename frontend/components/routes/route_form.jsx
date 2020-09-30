@@ -123,7 +123,7 @@ class CreateRoute extends React.Component{
                 waypoints: waypnt.map(point => ({location: point.location})),
                 travelMode: 'BICYCLING'
             };
-            debugger
+            
             this.directionsService.route(request, function(result,status){
                 if(status === 'OK'){
                     _self.directionsRenderer.setDirections(result);
@@ -137,8 +137,7 @@ class CreateRoute extends React.Component{
             const color = `&path=color:red|weight:2|`
             const enc_polyline = `enc:${route.overview_polyline}`;
             const polyline = route.overview_polyline;
-            const key = `&key=${window.key}`;
-            image += color + enc_polyline + key;
+            image += color + enc_polyline + '&key=';
             this.setState({
                 image_url: image,
                 encoded_polyline: polyline
@@ -192,37 +191,56 @@ class CreateRoute extends React.Component{
         
         return(
             <div className='route_show_container'>
-                <div className='fake_modal_container'>
-                    <button className='fake_modal' onClick={this.handleButtonClick}>Save</button>
-                        {this.state.show && (
-                        <div className='Dropdown'>
-                                    <h3>My Route</h3>
-                                    <form onSubmit={this.handleSubmit}>
-                                        <label> <div className="modal-text">Route name:</div>
-                                            
-                                            <input type="text" value={this.state.route_name} placeholder="Route name" onChange={this.update('route_name')}/>
-                                        </label>
-                                        <label> <div className="modal-text">Description:</div>
-                                            <textarea value={this.state.description} placeholder="Add a description of your route!" onChange={this.update('description')}></textarea>
-                                        </label>
-                                        <div className="modal-buttons">
-                                        <button onClick={this.handleButtonClick}>Edit Route</button>  
-                                        <button type="submit" >Save to My Routes</button> 
-                                        </div>
-                                    </form>
-                        </div>
-                        )}
-                   
-
-                </div>
+                
+            
                 <div className='sidebar'>
-                    <h1>this will be the sidebar</h1>
+                    <h2 className='sidebar-title'>Routing preferences</h2>
+                        <div >
+                            <select className='select'>
+                                <option value="BICYCLE">Ride</option>
+                                <option value="RUNNING">Run</option>
+                            </select>
+
+                        </div>
+                        
+
+                    <h2 className='sidebar-title'>Map preferences</h2>
+                        <div>
+                        <select className='select'>
+                                <option value="Standard">Standard</option>
+                                <option value="Satellite">Satellite</option>
+                        </select>
+                        </div>
                 </div>
         
-                
-                <div className='map' ref={(el)=> this.mapdiv = el }>
-                
-                
+                <div className='map-container'>
+                    <div className='fake_modal_container'>
+                        <button className='fake_modal' onClick={this.handleButtonClick}>Save</button>
+                            {this.state.show && (
+                            <div className='Dropdown'>
+                                <div className='dropdown-container'>
+                                        <h3 className='route-modal-title'>My route</h3>
+                                        <form onSubmit={this.handleSubmit}>
+                                            <label> <div className="modal-text">Route name(required)</div>
+                                                
+                                                <input className='route-name-text' type="text" value={this.state.route_name} placeholder="Route name" onChange={this.update('route_name')}/>
+                                            </label>
+                                            <label> <div className="modal-text">Description:</div>
+                                                <textarea className='modal-textarea' value={this.state.description} placeholder="Add a description of your route!" onChange={this.update('description')}></textarea>
+                                            </label>
+                                            <div className="modal-buttons">
+                                            <button className='edit-button' onClick={this.handleButtonClick}>Edit Route</button>  
+                                            <button className='save-button' type="submit" >Save to My Routes</button> 
+                                            </div>
+                                        </form>
+                                    </div>
+                            </div>
+                            )}
+                    </div>
+                        <div className='map' ref={(el)=> this.mapdiv = el }>
+                            
+                        
+                        </div>
                 </div>
                 
             </div>

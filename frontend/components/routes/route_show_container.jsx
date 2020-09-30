@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import RouteShow from './route_show';
-import {fetchRoute, updateRoute} from '../../actions/routes_actions';
+import {fetchRoute, updateRoute, deleteRoute} from '../../actions/routes_actions';
 
 const mapStateToProps = (state, ownProps) =>{
    
