@@ -8,6 +8,7 @@
 
 User.delete_all
 Route.delete_all
+Workout.delete_all
 
 test = User.create!(
     email: 'email@email.com',
@@ -73,3 +74,7 @@ test_route2 = Route.create!(
     encoded_polyline: 'eukwFvvjbM_@eHUgD}Ej@kC\kAPMoBaAuPs@{LI{Be@}HqAqJ}@{GcAqGe@kCaD`AeCbAk@cF',
     image_url: 'https://maps.googleapis.com/maps/api/staticmap?size=200x200&path=color:red|weight:2|enc:eukwFvvjbM_@eHUgD}Ej@kC\kAPMoBaAuPs@{LI{Be@}HqAqJ}@{GcAqGe@kCaD`AeCbAk@cF&key='
 )
+
+test_workout1 = Workout.create!{
+    
+}

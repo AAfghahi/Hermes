@@ -12,11 +12,11 @@
 #  gender          :string
 #  weight          :integer
 #  height          :integer
-#  location_lat    :decimal(, )
-#  location_long   :decimal(, )
+#  location_lat    :float
+#  location_long   :float
+#  age             :integer
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
-#  age             :integer
 #
 class User < ApplicationRecord
     validates :email, :session_token, presence:true, uniqueness:true
@@ -27,7 +27,8 @@ class User < ApplicationRecord
     before_validation :ensure_session_token
 
     has_many :routes
-
+    has_many :workouts
+    
     def self.generate_session_token
         SecureRandom::urlsafe_base64()
     end

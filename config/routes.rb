@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :show, :create]
     resource :session, only: [:create, :destroy]
     resources :routes, only: [:create, :destroy, :index, :show, :update]
+    resources :workouts, only: [:create, :destroy, :index, :show, :update]
   end
 
 end

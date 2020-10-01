@@ -15,11 +15,11 @@
 #  gender          :string
 #  weight          :integer
 #  height          :integer
-#  location_lat    :decimal(, )
-#  location_long   :decimal(, )
+#  location_lat    :float
+#  location_long   :float
+#  age             :integer
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
-#  age             :integer
 #
 >>>>>>> master
 
