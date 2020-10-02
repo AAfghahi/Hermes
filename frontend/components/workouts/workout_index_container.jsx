@@ -12,7 +12,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     fetchWorkouts: () => dispatch(fetchWorkouts()),
-    deleteReport: (workoutId) => dispatch(deleteWorkout(workoutId))
+    deleteWorkout: (workoutId) => dispatch(deleteWorkout(workoutId))
 });
 
 export default connect(mapStateToProps,mapDispatchToProps)(WorkoutIndex);

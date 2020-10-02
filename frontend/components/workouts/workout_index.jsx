@@ -10,20 +10,24 @@ class WorkoutIndex extends React.Component{
 
     render(){
         return(
-            <table>
-                <thead>
+            <div>
+                <h1 className='route-title'> My Activities</h1>
+
+                <p className='activity-number'>{this.props.workouts.length} Activities</p>
+            <table className='activities-table'>
+                <thead className='activity-columns'>
                     <tr>
-                        <th>Sport</th>
-                        <th>Date</th>
-                        <th>Title</th>
-                        <th>Time</th>
-                        <th>Distance</th>
-                        <th>Elevation</th>
-                        <th></th>
-                        <th></th>
+                        <th className='column-titles'>Sport</th>
+                        <th className='column-titles'>Date</th>
+                        <th className='column-titles'>Title</th>
+                        <th className='column-titles'>Time</th>
+                        <th className='column-titles'>Distance</th>
+                        <th className='column-titles'>Elevation</th>
+                        <th className='column-titles'></th>
+                        <th className='column-titles'></th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody className='activity-body'>
                     {this.props.workouts.map(workout=>
                         <WorkoutIndexItem
                             workout= {workout}
@@ -34,6 +38,7 @@ class WorkoutIndex extends React.Component{
                 </tbody>
                     
             </table>
+            </div>
         )
     }
 }

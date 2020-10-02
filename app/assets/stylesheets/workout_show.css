@@ -1,0 +1,107 @@
+.workout-show-container{
+    display:flex;
+    padding-top:20px;
+    border-top:1px solid lightgrey;
+    width:100%;
+    margin-top: 5px;
+}
+
+.workout-title-container{
+    background:rgb(241, 240, 240);
+    width:99.2%;
+    padding:3px;
+    border-right:1px solid lightgrey;
+    border-left:1px solid lightgrey;
+}
+
+
+.workout-title{
+    width:97%;
+    margin-bottom:5px;
+    margin-top:5px;
+    font-size:24px;
+    font-weight:normal;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+.workout-icons{
+    width:10%;
+}
+
+.workout-container{
+    width:90%
+}
+
+.workout-show-container{
+    display:flex;
+    padding-top:0px;
+    
+}
+
+.workout-info-container{
+    width:45%;
+    border-bottom:1px solid lightgrey;
+    border-left:1px solid lightgrey;
+}
+
+.workout-creation-time{
+    margin-top:20px;
+    margin-bottom:0px;
+    color:rgb(96, 103, 110);
+    font-size:14px;
+}
+
+.workout-show-title{
+    margin-top:0px;
+    font-size:28px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom:5px;
+}
+
+.workout-textarea{
+    border:none;
+    resize:none;
+    margin-top:5px;
+    font-size:14px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.stats-container{
+    width:55%;
+    border-left:1px solid lightgrey;
+    border-bottom:1px solid lightgrey;
+    border-right:1px solid lightgrey;
+}
+
+.stats{
+    width:100%;
+    list-style:none;
+    margin:0;
+    overflow:hidden;
+
+}
+
+.individual-stats{
+    float:left;
+    padding:10px;
+    padding-right:35px;
+}
+
+.ind-stats-info{
+    margin-bottom: 0px;
+    font-size:24px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.stats-identifier{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size:12px;
+    color:rgb(161, 159, 159);
+    margin-top:0px;
+}
+
+.edit-pencil{
+    height:30px;
+    width:30px;
+    float:right;
+}

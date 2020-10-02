@@ -7,7 +7,7 @@ class RouteIndexItem extends React.Component{
         const {image_url, distance, estimated_time, route_name, elevation, created_at, updated_at} = this.props.route;
         return(
             <li className='index-item'>
-                <img className='index-image' src={image_url + window.key}/>
+                <Link to={`/routes/${this.props.route.id}`}> <img className='index-image' src={image_url + window.key}/></Link>
                 <div>
                 <Link to={`/routes/${this.props.route.id}`} className='index-item-link'> {route_name} </Link>
                 <div>
@@ -27,7 +27,7 @@ class RouteIndexItem extends React.Component{
                 </div>
               
                 <p className='item-descriptor'>Est.Moving Time</p> 
-        <p className='index-item-time'>{Math.round(estimated_time/60)}:{('0'+estimated_time%60).slice(-2)}</p>
+        <p className='index-item-time'>{(Math.round(estimated_time/3600))}:{('0'+ Math.round(estimated_time/60)%60).slice(-2)}:{('0'+estimated_time%60).slice(-2)}</p>
                 </div>
                 <section className='creation-time'>
                     Created at {formatDate(this.props.route.created_at)}

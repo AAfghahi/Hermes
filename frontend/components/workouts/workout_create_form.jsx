@@ -38,77 +38,90 @@ class WorkoutForm extends React.Component{
         return(
             <div>
                 <form onSubmit={this.handleSubmit}>
-                <h1>{this.props.formType}</h1>
-                <ul>
-                    <li>
-                        Distance
-                        <div>
-                            <input type="number"
-                            step='0.01'
-                            value={this.state.miles}
-                            onChange={this.update('miles')}
-                            />
-                            mi
-                        </div> 
-                    </li>
-                    <li>
-                        Duration
-                        <div><input type="number"
-                            placeholder='01'
-                            value={this.state.hours}
-                            min='0'
-                            onChange={this.update('hours')}
-                            /> hr</div>
-                        <div>
-                        <input type="number"
-                            placeholder='00'
-                            value={this.state.minutes}
-                            min='0'
-                            max='59'
-                            onChange={this.update('minutes')}
-                            /> min
+                <h1 className='create-title'>{this.props.formType}</h1>
+                <div className='all-inputs'>
+                        <div className='top container'>
+                            <ul className='metrics-input'>
+                                <li className='metrics-li'>
+                                    <p>Distance</p>
+                                       
+                                    <div className='number-inputs'>
+                                        <input type="number"
+                                        className='distance-input'
+                                        step='0.01'
+                                        value={this.state.miles}
+                                        onChange={this.update('miles')}
+                                        />
+                                        mi
+                                    </div> 
+                                </li>
+                                <li className='metrics-li'>
+                                    <p> Duration</p>
+                                   
+                                    <div className='number-inputs'><input type="number"
+                                        placeholder='01'
+                                        value={this.state.hours}
+                                        min='0'
+                                        onChange={this.update('hours')}
+                                        /> hr</div>
+                                    <div>
+                                    <input type="number"
+                                        placeholder='00'
+                                        value={this.state.minutes}
+                                        min='0'
+                                        max='59'
+                                        onChange={this.update('minutes')}
+                                        /> min
+                                    </div>
+                                    <div className='number-inputs'>
+                                        <input type="number"
+                                        placeholder='00'
+                                        min='0'
+                                        max='59'
+                                        value={this.state.seconds}
+                                        onChange={this.update('seconds')}
+                                        />
+                                        s
+                                    </div>
+                                </li>
+                                <li className='metrics-li'>
+                                    <p>Elevation</p>
+                                    
+                                    <div className='number-inputs'>
+                                        <input type="number"
+                                        value={this.state.elevation}
+                                        onChange={this.update('elevation')}
+                                        />
+                                    </div>
+                                </li>
+                            </ul>
+                            
                         </div>
-                        <div>
-                            <input type="number"
-                            placeholder='00'
-                            min='0'
-                            max='59'
-                            value={this.state.seconds}
-                            onChange={this.update('seconds')}
-                            />
-                            s
+                        <br/>
+                        <div className='sports-choice'>
+                            <label>Sport</label>
+                                <select onChange={this.update('activity_type')} value={this.state.activity_type}>
+                                    <option  value="Ride">Ride</option>
+                                    <option value="Run">Run</option>
+                                    <option value="Walk">Walk</option>
+                                </select>
+
+                            <label>Title</label>
+                                <input 
+                                    type="text" 
+                                    value={this.state.workout_name}
+                                    onChange={this.update('workout_name')}
+                                    />
                         </div>
-                    </li>
-                    <li>
-                        Elevation
-                        <div>
-                            <input type="number"
-                            value={this.state.elevation}
-                            onChange={this.update('elevation')}
-                            />
-                        </div>
-                    </li>
-                </ul>
-                <label>Sport
-                    <select onChange={this.update('activity_type')} value={this.state.activity_type}>
-                        <option  value="Ride">Ride</option>
-                        <option value="Run">Run</option>
-                        <option value="Walk">Walk</option>
-                    </select>
-                </label>
-                <label>Title
-                    <input 
-                        type="text" 
-                        value={this.state.workout_name}
-                        onChange={this.update('workout_name')}
-                        />
-                </label>
-                <label>Description
-                    <textarea
-                        value={this.state.description}
-                        onChange={this.update('description')}
-                        />
-                </label>
+                    
+                        
+                        <label>Description</label>
+                            <textarea
+                                value={this.state.description}
+                                onChange={this.update('description')}
+                                />
+                </div>    
+              
                 <button type="submit">Create</button>
                 <Link to='/workouts'>Cancel</Link>
             </form>

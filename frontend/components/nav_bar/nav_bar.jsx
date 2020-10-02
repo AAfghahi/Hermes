@@ -20,33 +20,27 @@ export default ({ currentUser, logout }) => {
 
   const loggedIn = (
     <nav className='innerbar'>
-
-      <a href="/"> <img className='logo' src={window.logoURL} /></a>
-
-      <div className='navbar-dropdown'>
-        <div className='dashboard'>
-        <label> Dashboard </label>
-        <select className='activity-dropdown'></select>
+      <div className='leftnav'>
+        <a href="/"> <img className='logo' src={window.logoURL} /></a>
+        <div className='navbar-dropdown'>
+            <div className='dashboard'>
+              <label className='dashboard-label'> Dashboard </label>
+              <select className='activity-dropdown'></select>
+              <div className='navbar-content'>
+                <Link className='navbar-linkname' to='/workouts'><p className='navbar-links'>My Workouts</p></Link>
+                <Link className='navbar-linkname' to='/routes'> <p className='navbar-links'> My Routes</p></Link>
+              </div>
+            </div>
         </div>
-        
-          <div className='navbar-content'>
-            <p className='navbar-links'><Link className='navbar-linkname'>Activity Feed</Link></p>
-            <p className='navbar-links'><Link className='navbar-linkname'>My Workouts</Link></p>
-            <p className='navbar-links'><Link className='navbar-linkname' to='/routes'> My Routes</Link></p>
-          </div>
-      </div>  
-
-        
-          <div className='logout-create-dropdown'>
-        <button className='add-dropdown-button'> +</button>
-          <div className='add-content'>
-            <button className='add-button'><Link className='droplink' to='/routes/create'>Create a Route</Link></button>
-              
-            <button className='add-button' onClick={logout}>Log Out</button>
-          </div>
-
-          
       </div>
+          <div className='logout-create-dropdown'>
+              <button className='add-dropdown-button'> +</button>
+              <div className='add-content'>
+                <button className='add-button'><Link className='droplink' to='/workouts/create'>Manual Entry</Link> </button>
+                <button className='add-button'><Link className='droplink' to='/routes/create'>Create a Route</Link></button>
+                <button className='add-button' onClick={logout}>Log Out</button>
+              </div>
+          </div>   
       
     </nav>
   )

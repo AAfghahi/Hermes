@@ -12,7 +12,7 @@
     padding:0;
     display:flex;
     position:fixed;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 90%; 
     height:5%;
 }
@@ -70,7 +70,7 @@
    max-width: 100%;
    height: 40px;
    padding-bottom: 10px;
-   margin-right: 900px;
+   margin-right: 10px;
 }
 
 .navbutton:hover{
@@ -102,6 +102,7 @@
 
 .navbar-dropdown{
     background:white;
+    align-items:baseline;
 }
 
 .navbar-content{
@@ -148,6 +149,11 @@
     background:none;
 }
 
+.dashboard{
+    align-self: baseline;
+    margin-top:16px;
+}
+
 .dashboard:hover{
     color:rgb(255, 84, 27);
 }
@@ -157,7 +163,9 @@
     font-family:Arial, Helvetica, sans-serif;
     color:rgb(43, 39, 39);
     padding-right:20px;
-    margin-bottom:10px;
+    padding-top:15px;
+    padding-bottom:15px;
+    
     font-size:15px;
 }
 
@@ -206,11 +214,6 @@
 }
 
 
-
-
-
-
-
 .droplink{
     text-decoration: none;
     color:black;
@@ -225,4 +228,19 @@
 .navbar-linkname{
     text-decoration: none;
     color:black;
+}
+
+.leftnav{
+    display:flex;
+    flex-direction: row;
+    margin-left:40px;
+    align-content: baseline;
+}
+
+.route-title{
+    border-top: 1px solid lightgrey;
+}
+
+.my-routes{
+    margin-left:45px;
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import {formatDate} from '../../util/date_utils';
 class EditWorkoutForm extends React.Component {
     constructor(props){
         super(props);
@@ -27,58 +28,63 @@ class EditWorkoutForm extends React.Component {
         
       if (!workout) return null;
       return (
-        <div>
+        <div className='edit-container'>
             <form onSubmit={this.handleSubmit}>
-                <div>
-                <h1>{formType}</h1>
-                <button type="submit">Save</button>
+                <div className='edit-top-container'>
+                <h1 className='edit-title'>{formType}</h1>
+                <button className='save-button' type="submit">Save</button>
                 </div>
-               
-                <label>Title
-                    <input 
-                        type="text"
-                        value={workout_name}
-                        onChange={this.update('workout_name')}/>
-                </label>
-                <label>Description
-                    <textarea
-                        value={description}
-                        onChange={this.update('description')}/>
-                </label>
+               <div className='form-container'>
+                    <div className='form-div'>
+                        <label className='title-label'>Title </label>
+                            <input 
+                                className='title-input'
+                                type="text"
+                                value={workout_name}
+                                onChange={this.update('workout_name')}/>
+                       
+                        <label className='description-label'>Description</label> 
+                            <textarea 
+                                className='description-input'
+                                value={description}
+                                onChange={this.update('description')}/>
+                               
+                    </div>
+
+                    <div className='info-div'>
+                        <ul className='stats-ul'>
+                            <li className='stats-identity'>
+                                Date
+                            </li>
+                            <li className='stats-identity'>
+                                Distance
+                            </li>
+                            <li className='stats-identity'>
+                                Time
+                            </li>
+                            <li className='stats-identity'>
+                                Elevation
+                            </li>
+                        </ul>
+
+                        <ul className='stats-ul'>
+                            <li className='stats-info'>
+                                {formatDate(created_at)}
+                            </li>
+                            <li className='stats-info'>
+                                {Math.round((this.props.workout.distance/5280)*100)/100} mi
+                            </li>
+                            <li className='stats-info'>
+                            {Math.round(this.props.workout.duration/60)}hr {('0'+this.props.workout.duration%60).slice(-2)} m
+                            </li>
+
+                            <li className='stats-info'>
+                            {this.props.workout.elevation} ft
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </form>
-
-        <div>
-            <ul>
-                <li>
-                    Date
-                </li>
-                <li>
-                    Distance
-                </li>
-                <li>
-                    Time
-                </li>
-                <li>
-                    Elevation
-                </li>
-            </ul>
-
-            <ul>
-                <li>
-                    {created_at}
-                </li>
-                <li>
-                    {Math.round((this.props.workout.distance/5280)*100)/100} mi
-                </li>
-                <li>
-                {Math.round(this.props.workout.estimated_time/60)}hr {('0'+this.props.workout.estimated_time%60).slice(-2)} m
-                </li>
-
-                <li>
-                {this.props.workout.elevation} ft
-                </li>
-            </ul>
-        </div>
         </div>
        
       );
