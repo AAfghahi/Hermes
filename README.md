@@ -1,7 +1,8 @@
-# README
+![alt text](https://github.com/AAfghahi/Hermes/blob/master/app/assets/images/logo.png)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Hermes is a clone of the Strava app. As such it is best utilized to track your physical exercise and allows you to make customized routes using Google maps. 
+
+
 
 Things you may want to cover:
 
