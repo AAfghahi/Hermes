@@ -53,7 +53,7 @@ test_route  = Route.create!(
     distance: 1371,
     user_id:1,
     elevation:500,
-    estimated_time:6,
+    estimated_time:360,
     encoded_polyline:'_xewF|`lbMUhB`AVxA^TFBYRwA\qC@Wr@_GAUHaDl@_Zf@uTqDO_@hPQvJOnGIzDMbGAj@nD~@lBd@l@PzA^b@?pCM~Hg@lQ{@vHa@rCQVxJRtI~AYlAOEQCYIkD]_NsCNqId@}G\wQ~@mEVaCLMCsBg@qHmB_J}B?Vs@xFq@fFE`@nD~@Hu@',
     image_url:'https://maps.googleapis.com/maps/api/staticmap?size=200x200&path=color:red|weight:2|enc:_xewF|`lbMUhB`AVxA^TFBYRwA\qC@Wr@_GAUHaDl@_Zf@uTqDO_@hPQvJOnGIzDMbGAj@nD~@lBd@l@PzA^b@?pCM~Hg@lQ{@vHa@rCQVxJRtI~AYlAOEQCYIkD]_NsCNqId@}G\wQ~@mEVaCLMCsBg@qHmB_J}B?Vs@xFq@fFE`@nD~@Hu@&key=',
 )
@@ -70,11 +70,31 @@ test_route2 = Route.create!(
     distance:1856,
     user_id:1,
     elevation:327,
-    estimated_time: 6,
+    estimated_time: 500,
     encoded_polyline: 'eukwFvvjbM_@eHUgD}Ej@kC\kAPMoBaAuPs@{LI{Be@}HqAqJ}@{GcAqGe@kCaD`AeCbAk@cF',
     image_url: 'https://maps.googleapis.com/maps/api/staticmap?size=200x200&path=color:red|weight:2|enc:eukwFvvjbM_@eHUgD}Ej@kC\kAPMoBaAuPs@{LI{Be@}HqAqJ}@{GcAqGe@kCaD`AeCbAk@cF&key='
 )
 
-test_workout1 = Workout.create!{
-    
-}
+test_workout1 = Workout.create!(
+    id:1,
+    route_id: 1, 
+    user_id: 1, 
+    workout_name:'training',
+    duration: 67,
+    elevation:475,
+    activity_type:"Ride",
+    description:'Went on a morning bike ride',
+    distance:5321
+)
+
+test_workout2 = Workout.create!(
+    id:2,
+    route_id: 2, 
+    user_id: 1, 
+    workout_name:'marathon run',
+    duration: 92, 
+    elevation:-150, 
+    activity_type:'Run',
+    description: 'day one of marathon training',
+    distance: 2400
+)

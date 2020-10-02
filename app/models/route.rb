@@ -24,7 +24,7 @@ class Route < ApplicationRecord
     validates :destination_lng, :route_name, :activity_type, :description, :distance, :user_id, :elevation, :image_url, :encoded_polyline, presence:true
     
     belongs_to :user
-    has_many :workouts
+  
     
 
 end

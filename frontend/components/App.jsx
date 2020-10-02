@@ -9,7 +9,11 @@ import SignUpFormContainer from './session_form/signup_form_container';
 import RouteIndexContainer from './routes/route_index_container';
 import RouteShowContainer from './routes/route_show_container';
 import RouteEditContainer from './routes/edit_route_container';
+import WorkoutShowContainer from './workouts/workout_show_container';
+import WorkoutCreate from './workouts/create_workout_form_container';
+import WorkoutEdit from './workouts/edit_workout_form_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
+import WorkoutIndexContainer from './workouts/workout_index_container';
 const App = () => (
  
   <div className='app'>
@@ -25,6 +29,10 @@ const App = () => (
     <ProtectedRoute exact path="/routes" component={RouteIndexContainer} />
     <ProtectedRoute exact path="/routes/:id" component={RouteShowContainer} />
     <ProtectedRoute exact path="/routes/:id/edit" component={RouteEditContainer}/>
+    <ProtectedRoute exact path='/workouts' component= {WorkoutIndexContainer}/>
+    <ProtectedRoute exact path='/workouts/create' component={WorkoutCreate}/>
+    <ProtectedRoute exact path='/workouts/:id' component={WorkoutShowContainer}/>
+    <ProtectedRoute exact path='/workouts/:id/edit' component={WorkoutEdit}/>
     </Switch>
   
   </div>

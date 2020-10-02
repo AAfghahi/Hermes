@@ -86,8 +86,8 @@ class CreateRoute extends React.Component{
             map: map,
             icon:{
                 path:google.maps.SymbolPath.CIRCLE,
-                scale:4,
-                strokeWeight: 3,
+                scale:5,
+                strokeWeight: 4,
                 fillColor:'white',
                 strokeColor:'#D3D3D3'
             },
@@ -147,7 +147,7 @@ class CreateRoute extends React.Component{
 
         findDistanceAndTime(directions){
             const route = directions.routes[0];
-            let duration = this.state.estimated_time + Math.floor(route.legs[0].duration.value/60);
+            let duration = this.state.estimated_time + Math.floor(route.legs[0].duration.value);
             let distance = this.state.distance + route.legs[0].distance.value;
             this.setState({
                 estimated_time: duration,

@@ -1,5 +1,6 @@
 class Api::WorkoutsController < ApplicationController
     def index 
+
         @workouts = current_user.workouts
         render :index
     end
@@ -45,7 +46,9 @@ class Api::WorkoutsController < ApplicationController
             :duration, 
             :elevation, 
             :activity_type, 
-            :description
+            :description,
+            :distance, 
+            :workout_name
         )
     end
 end
