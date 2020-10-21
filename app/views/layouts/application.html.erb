@@ -9,6 +9,15 @@
     
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <meta property="og:title" content="Hermes" />
+     <meta property='og:image' content="<%= image_url('hermes2.gif') %>"/>
+     <meta property="og:description"
+       content="A workout app using Ruby on Rails, React, and Google Maps API."
+     />
+     <meta property="og:url"
+       content="http://projectname.herokuapp.com/"
+     />
+
     <script type="text/javascript">
       window.key = '<%= Figaro.env.MAPS_API_KEY%>'
   </script>
