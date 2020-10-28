@@ -1,5 +1,4 @@
 import React from 'react';
-
 class CreateRoute extends React.Component{
     constructor(props){
         super(props);
@@ -54,7 +53,8 @@ class CreateRoute extends React.Component{
             map: this.map,
             preserveViewport:true,
             suppressMarkers:true,
-            polylineOptions: border
+            polylineOptions: border,
+            travelMode: google.maps.TravelMode[this.state.travel_mode]
         });
         this.service = new google.maps.DistanceMatrixService();
         const map = this.map;
@@ -64,7 +64,11 @@ class CreateRoute extends React.Component{
         this.listenForChange();
     }
   
-  
+    componentDidUpdate(prevProps, prevState){
+        if (prevState.activity_type !== this.state.activity_type){
+            if(typeof this.points[0] !== 'undefined') this.createPath();
+        }
+    }
     registerListeners() {
         google.maps.event.addListener(this.map, 'click', (event)=>{
             this.addLatLang(event.latLng);
@@ -73,6 +77,8 @@ class CreateRoute extends React.Component{
         });
 
     }
+
+ 
 
     addMarker(){
         const map  = this.map;
@@ -116,12 +122,17 @@ class CreateRoute extends React.Component{
         createPath(){
             const _self = this;
             const waypnt = this.points.slice(1);
-          
+            let mode = ''
+            if(this.state.activity_type === ''){
+                mode = 'BICYCLING';
+            }else{
+                mode = this.state.activity_type;
+            };
             const request ={
                 origin: this.points[0].location,
                 destination: this.points[this.points.length -1].location,
                 waypoints: waypnt.map(point => ({location: point.location})),
-                travelMode: 'BICYCLING'
+                travelMode: mode
             };
             
             this.directionsService.route(request, function(result,status){
@@ -146,15 +157,21 @@ class CreateRoute extends React.Component{
         }
 
         findDistanceAndTime(directions){
-            const route = directions.routes[0];
-            let duration = this.state.estimated_time + Math.floor(route.legs[0].duration.value);
-            let distance = this.state.distance + route.legs[0].distance.value;
-            this.setState({
-                estimated_time: duration,
-                distance: distance
-            });
-        
-        }
+           if (this.directionsRenderer.getDirections() !== undefined){
+                const route = directions.routes[0].legs;
+                let duration = 0;
+                let distance = 0
+                for(let i = 0; i < route.length; i++) {
+                        duration += route[i].duration.value;
+                        distance += route[i].distance.value;
+                    }
+                // let distance = this.state.distance + route.legs[0].distance.value;
+                this.setState({
+                    estimated_time: duration,
+                    distance: distance
+                });
+            }
+           }
 
         listenForChange(){
             const _self = this;
@@ -170,9 +187,11 @@ class CreateRoute extends React.Component{
         }
 
         update(field){
+
             return e => this.setState({
                 [field]: e.target.value
             });
+           
         }
        
         handleSubmit(e){
@@ -186,34 +205,12 @@ class CreateRoute extends React.Component{
                 show: !this.state.show
             });
         }
+
         
     render(){
         
-        return(
-        <div>    
+        return(  
             <div className='route_show_container'>
-                
-            
-                <div className='sidebar'>
-                    <h2 className='sidebar-title'>Routing preferences</h2>
-                        <div >
-                            <select className='select'>
-                                <option value="BICYCLE">Ride</option>
-                                <option value="RUNNING">Run</option>
-                            </select>
-
-                        </div>
-                        
-
-                    <h2 className='sidebar-title'>Map preferences</h2>
-                        <div>
-                        <select className='select'>
-                                <option value="Standard">Standard</option>
-                                <option value="Satellite">Satellite</option>
-                        </select>
-                        </div>
-                </div>
-        
                 <div className='map-container'>
                     <div className='fake_modal_container'>
                         <button className='fake_modal' onClick={this.handleButtonClick}>Save</button>
@@ -243,31 +240,33 @@ class CreateRoute extends React.Component{
                         
                         </div>
                 </div>
-                
-                
+                    <footer className='route-footer'>
+                        <ul className='stats-footer'>
+                            <li className='info-items'>
+                                <h2 className='item-descriptor'>Routing preferences</h2>
+                                <select className='select' onChange={this.update('activity_type')}>
+                                    <option className='activity_type' value="BICYCLING">Ride</option>
+                                    <option className='activity_type' value="WALKING">Run</option>
+                                </select>
+                                {this.state.activity_type === 'WALKING' ? <i className="fas fa-running"></i> : <i className="fas fa-bicycle"></i>}
+                            </li>
+                            <li className='info-items'>
+                                <h1 className='item-descriptor'>Distance</h1>
+                                <h1 className='item-numbers'>{Math.round((this.state.distance/5280)*100)/100} mi</h1>
+                            </li>
+
+                            <li className='info-items'>
+                                <h1 className='item-descriptor'>Elevation</h1>
+                                <h1 className='item-numbers'>{this.state.elevation} ft</h1>
+                            </li>
+                            <li className='info-items'>
+                                <h1 className='item-descriptor'>Est.Moving Time</h1>
+                                <h1 className='index-item-time'>{Math.round(this.state.estimated_time/60)}:{('0'+this.state.estimated_time%60).slice(-2)}</h1>
+                            </li>
+                        </ul>
+                    </footer>    
             </div>
-
-            <footer className='route-footer'>
-            <ul className='stats-footer'>
-                <li className='info-items'>
-                    <h1 className='item-descriptor'>Distance</h1>
-                    <h1 className='item-numbers'>{Math.round((this.state.distance/5280)*100)/100} mi</h1>
-                </li>
-
-                <li className='info-items'>
-                    <h1 className='item-descriptor'>Elevation</h1>
-                    <h1 className='item-numbers'>{this.state.elevation} ft</h1>
-                </li>
-                <li className='info-items'>
-                    <h1 className='item-descriptor'>Est.Moving Time</h1>
-                    <h1 className='index-item-time'>{Math.round(this.state.estimated_time/60)}:{('0'+this.state.estimated_time%60).slice(-2)}</h1>
-                </li>
-            </ul>
-
-
-            </footer>
-        </div>
-            
+        
         )
     }
 }

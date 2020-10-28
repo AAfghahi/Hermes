@@ -8,11 +8,19 @@
 }
 
 .select{
-    border-right:none;
-    border-left:none;
-    border-top:none;
+    border: none;
+    border-bottom: none;
     background: white;
     width:75%;
     border-bottom: 1px solid lightgrey;
     border-radius:2px;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+
+select option:hover{
+    background: lightgrey;
+}
+i{
+    padding-left:3px;
 }

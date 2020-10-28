@@ -6,6 +6,7 @@
     overflow:hidden;
     padding:0;
     margin-left:35px;
+    overflow-y:scroll;
 }
 
 .index-item{

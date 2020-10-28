@@ -1,7 +1,7 @@
 .map{
     
     width:100%;
-    height:600px;
+    height:70vw;
     visibility: visible;
 }
 
@@ -17,7 +17,7 @@
 }
 
 .map-container{
-    width: 85%;
+    width: 100%;
     height:100%;
     display: flex;
     flex-direction: column;
