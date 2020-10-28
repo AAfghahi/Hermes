@@ -1,4 +1,5 @@
 import React from 'react';
+import Map from './showmap';
 import {Link} from 'react-router-dom';
 import {formatDate} from '../../util/date_utils';
 
@@ -21,7 +22,8 @@ class RouteShow extends React.Component{
             <Link to={`/routes/${this.props.route.id}/edit`}><button className='navbutton'>Edit</button></Link>
             <Link to='/routes'><button className='navbutton' onClick={()=> this.props.deleteRoute(this.props.route.id)}>Delete</button></Link>
             <div className='show-container'>
-                <img className='map-pic' src={this.props.route.image_url + window.key}/>
+                <Map
+                    route={this.props.route}/>
                 <div className='words-container'>
                     <div className='top-container'>
                         <p className='user-title'>By {this.props.user.first_name} {this.props.user.last_name}</p>

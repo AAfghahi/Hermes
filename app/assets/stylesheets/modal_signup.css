@@ -16,7 +16,7 @@
 .modal{
     position:relative;
     min-width: 250px;
-    max-width: 450px;
+    max-width: 650px;
     height:500px;
     z-index: 1;
     justify-content: center;
@@ -163,13 +163,16 @@
 }
 
 .errors{
-    color:rgb(241, 57, 57);
+    color: #ec5647;
     text-align:center;
     justify-self:center;
 }
 
 .login-errors{
+    margin-left: auto;
+    padding: 10px;
     justify-self:center;
     display:flex;
     justify-content: center;
+    flex-direction: column;
 }
