@@ -3,9 +3,11 @@
     width:100%;
     height:70vw;
     visibility: visible;
+    z-index:1;
 }
 
 .route_show_container{
+    background: white;
     display:flex;
     flex-direction: row;
     width:100%;

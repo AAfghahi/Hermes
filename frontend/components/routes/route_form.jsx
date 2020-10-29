@@ -71,13 +71,23 @@ class CreateRoute extends React.Component{
     }
     registerListeners() {
         google.maps.event.addListener(this.map, 'click', (event)=>{
-            this.addLatLang(event.latLng);
-            this.addMarker();
-            this.createPath();
+            if (this.state.show === true){
+                this.modalClose();
+            }else{
+                this.addLatLang(event.latLng);
+                this.addMarker();
+                this.createPath();
+
+            }
         });
 
     }
 
+    modalClose(){
+            this.setState({
+                show: false
+            })
+    }
  
 
     addMarker(){
@@ -201,11 +211,13 @@ class CreateRoute extends React.Component{
         }
 
         handleButtonClick(){
+
             this.setState({
                 show: !this.state.show
-            });
+            })
         }
 
+    
         
     render(){
         

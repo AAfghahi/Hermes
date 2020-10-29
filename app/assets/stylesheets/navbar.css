@@ -6,6 +6,7 @@
 .nav-bar{
     width:90%;
     height:40px;
+    z-index:5;
 }
 .innerbar{
     margin:0;
@@ -15,6 +16,7 @@
     justify-content: space-between;
     width: 90%; 
     height:5%;
+    z-index:4;
 }
 
 .nav_title{
@@ -87,7 +89,7 @@
     border-top:1px solid lightgrey;
     border-right:1px solid lightgrey;
     border-left:1px solid lightgrey;
-    z-index:2;
+    z-index:5;
     border-bottom: 5px solid white;
 }
 
@@ -98,6 +100,7 @@
     border-right:1px solid lightgrey;
     border-left:1px solid lightgrey;
     border-bottom:1px solid lightgrey;
+    z-index:5;
 }
 
 .navbar-dropdown{
@@ -108,7 +111,7 @@
 .navbar-content{
     display:none;
     position:absolute;
-    z-index:2;
+    z-index:5;
     background: white;
     
 }
@@ -123,16 +126,11 @@
     float:right;
     position:relative;
 }
-/* 
-.add-dropdown-button:hover{
-    color:white;
-    background:rgb(255, 84, 27);
-} */
 
 .add-content{
     top:10px;
     display:none;
-    z-index:4;
+    z-index:5;
   
 }
 
@@ -150,12 +148,15 @@
 }
 
 .dashboard{
+    display: block;
     align-self: baseline;
     margin-top:16px;
+    z-index:5;
 }
 
 .dashboard:hover{
     color:rgb(255, 84, 27);
+    z-index: 5;
 }
 
 .navbar-links{
@@ -165,12 +166,13 @@
     padding-right:20px;
     padding-top:15px;
     padding-bottom:15px;
-    
+    z-index: 5;
     font-size:15px;
 }
 
 .navbar-links:hover{
     background:rgb(235, 232, 232);
+    z-index: 5;
 }
 
 .add-button{
@@ -179,7 +181,7 @@
     font-family: Arial, Helvetica, sans-serif;
     font-size:13px;
     background:white;
-    z-index:2;
+    z-index:5;
     padding:2px;
     width:100%;
 }
@@ -223,7 +225,7 @@
     font-family: Arial, Helvetica, sans-serif;
     font-size:13px;
     background:white;
-    z-index:2;
+    z-index:5;
     padding:2px;
     width:100%;
 }
@@ -238,6 +240,7 @@
     flex-direction: row;
     margin-left:40px;
     align-content: baseline;
+    z-index:5;
 }
 
 .route-title{
