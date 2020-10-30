@@ -6,7 +6,6 @@
 .nav-bar{
     width:90%;
     height:40px;
-    z-index:5;
 }
 .innerbar{
     margin:0;
@@ -16,7 +15,6 @@
     justify-content: space-between;
     width: 90%; 
     height:5%;
-    z-index:4;
 }
 
 .nav_title{
@@ -89,7 +87,7 @@
     border-top:1px solid lightgrey;
     border-right:1px solid lightgrey;
     border-left:1px solid lightgrey;
-    z-index:5;
+    z-index:2;
     border-bottom: 5px solid white;
 }
 
@@ -97,10 +95,6 @@
     display:block;
     border-right:1px solid lightgrey;
     border-left:1px solid lightgrey;
-<<<<<<< HEAD
-    border-bottom:1px solid lightgrey;
-    z-index:5;
-=======
     border-bottom:3px solid  rgb(230, 87, 39);
 
 }
@@ -113,7 +107,6 @@
     float:right;
     width:4.2vh;
     border-top: 1px solid lightgrey;
->>>>>>> fixes
 }
 
 .navbar-dropdown{
@@ -124,7 +117,7 @@
 .navbar-content{
     display:none;
     position:absolute;
-    z-index:5;
+    z-index:2;
     background: white;
 }
 
@@ -138,16 +131,16 @@
     float:right;
     position:relative;
 }
+/* 
+.add-dropdown-button:hover{
+    color:white;
+    background:rgb(255, 84, 27);
+} */
 
 .add-content{
     top:20%;
     display:none;
-<<<<<<< HEAD
-    z-index:5;
-  
-=======
     z-index:4;
->>>>>>> fixes
 }
 
 
@@ -164,15 +157,12 @@
 }
 
 .dashboard{
-    display: block;
     align-self: baseline;
     margin-top:16px;
-    z-index:5;
 }
 
 .dashboard:hover{
     color:rgb(255, 84, 27);
-    z-index: 5;
 }
 
 .navbar-links{
@@ -183,17 +173,12 @@
     padding-left:2vh;
     padding-top:3vh;
     padding-bottom:15px;
-<<<<<<< HEAD
-    z-index: 5;
-=======
     margin: 0 auto;
->>>>>>> fixes
     font-size:15px;
 }
 
 .navbar-links:hover{
     background:rgb(235, 232, 232);
-    z-index: 5;
 }
 
 .add-button{
@@ -202,13 +187,8 @@
     font-family: Arial, Helvetica, sans-serif;
     font-size:15px;
     background:white;
-<<<<<<< HEAD
-    z-index:5;
-    padding:2px;
-=======
     z-index:2;
     padding:10px;
->>>>>>> fixes
     width:100%;
 }
 
@@ -259,13 +239,8 @@
     font-family: Arial, Helvetica, sans-serif;
     font-size:15px;
     background:white;
-<<<<<<< HEAD
-    z-index:5;
-    padding:2px;
-=======
     z-index:2;
     padding-bottom:10px;
->>>>>>> fixes
     width:100%;
     
     
@@ -283,7 +258,6 @@
     flex-direction: row;
     margin-left:40px;
     align-content: baseline;
-    z-index:5;
 }
 
 .route-title{
