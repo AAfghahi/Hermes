@@ -85,7 +85,7 @@
     cursor: pointer;
 }
 
-.navbar-dropdown:hover{
+.dashboard:hover{
     border-top:1px solid lightgrey;
     border-right:1px solid lightgrey;
     border-left:1px solid lightgrey;
@@ -93,14 +93,27 @@
     border-bottom: 5px solid white;
 }
 
-.navbar-dropdown:hover .navbar-content{
+.dashboard:hover .navbar-content{
     display:block;
-    top:41px;
-    border-top: 1px solid lightgrey;
     border-right:1px solid lightgrey;
     border-left:1px solid lightgrey;
+<<<<<<< HEAD
     border-bottom:1px solid lightgrey;
     z-index:5;
+=======
+    border-bottom:3px solid  rgb(230, 87, 39);
+
+}
+
+.navbar-content:before{
+    content: "";
+    display: block;
+    margin-top:0;
+    margin-bottom:0;
+    float:right;
+    width:4.2vh;
+    border-top: 1px solid lightgrey;
+>>>>>>> fixes
 }
 
 .navbar-dropdown{
@@ -113,7 +126,6 @@
     position:absolute;
     z-index:5;
     background: white;
-    
 }
 
 .add-dropdown-button{
@@ -128,10 +140,14 @@
 }
 
 .add-content{
-    top:10px;
+    top:20%;
     display:none;
+<<<<<<< HEAD
     z-index:5;
   
+=======
+    z-index:4;
+>>>>>>> fixes
 }
 
 
@@ -163,10 +179,15 @@
     text-decoration: none;
     font-family:Arial, Helvetica, sans-serif;
     color:rgb(43, 39, 39);
-    padding-right:20px;
-    padding-top:15px;
+    padding-right:3vh;
+    padding-left:2vh;
+    padding-top:3vh;
     padding-bottom:15px;
+<<<<<<< HEAD
     z-index: 5;
+=======
+    margin: 0 auto;
+>>>>>>> fixes
     font-size:15px;
 }
 
@@ -179,10 +200,15 @@
     text-decoration:none;
     border:none;
     font-family: Arial, Helvetica, sans-serif;
-    font-size:13px;
+    font-size:15px;
     background:white;
+<<<<<<< HEAD
     z-index:5;
     padding:2px;
+=======
+    z-index:2;
+    padding:10px;
+>>>>>>> fixes
     width:100%;
 }
 
@@ -201,14 +227,22 @@
     
 }
 
-.logout-create-dropdown:hover :last-child{
+.add-content:hover :last-child{
     border-bottom:1px solid rgb(224, 218, 218);
+
 }
 
-.logout-create-dropdown:hover :first-child{
-    border-top:1px solid rgb(224, 218, 218);
+.add-content:hover :first-child {
+    border-top: 1px solid rgb(224, 218, 218);
 }
 
+.add-content:hover .droplink{
+    border:none;
+}
+.logout-create-dropdown:hover .droplink{
+    text-decoration: none;
+    background: white;
+}
 
 .add-button:hover .droplink{
     background:rgb(241, 238, 238);
@@ -223,12 +257,21 @@
     text-decoration: none;
     color:black;
     font-family: Arial, Helvetica, sans-serif;
-    font-size:13px;
+    font-size:15px;
     background:white;
+<<<<<<< HEAD
     z-index:5;
     padding:2px;
+=======
+    z-index:2;
+    padding-bottom:10px;
+>>>>>>> fixes
     width:100%;
+    
+    
 }
+
+
 
 .navbar-linkname{
     text-decoration: none;

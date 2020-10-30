@@ -34,7 +34,7 @@ export default ({ currentUser, logout }) => {
         </div>
       </div>
           <div className='logout-create-dropdown'>
-              <button className='add-dropdown-button'> +</button>
+              <button className='add-dropdown-button'>+</button>
               <div className='add-content'>
                 <button className='add-button'><Link className='droplink' to='/workouts/create'>Manual Entry</Link> </button>
                 <button className='add-button'><Link className='droplink' to='/routes/create'>Create a Route</Link></button>
