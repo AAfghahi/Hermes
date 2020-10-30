@@ -15,7 +15,10 @@ class WorkoutIndexItem extends React.Component{
                 <th className='activity-item'>{Math.round((distance/5280)*100)/100} mi</th>
                 <th className='activity-item'>{elevation} ft</th>
                 <th className='activity-item'><Link className='activity-link' to={`/workouts/${this.props.workout.id}/edit`}>Edit</Link></th>
-                <th className='activity-item'><button className='activity-button' onClick={()=> this.props.delete(this.props.workout.id)}>Delete</button></th>
+                <th className='activity-item'><button className='activity-button' onClick={(e)=> {
+                    e.stopPropagation();
+                    this.props.delete(this.props.workout.id)}
+                }>Delete</button></th>
             </tr>
         )
     }

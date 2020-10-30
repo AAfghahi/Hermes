@@ -16,12 +16,13 @@ class WorkoutForm extends React.Component{
         
     }
 
+
     handleSubmit(){
         const _self = this.state;
-        let feet = this.state.miles*5280;
-        let hourSeconds = this.state.hours * 3600;
-        hourSeconds += this.state.minutes *60 + this.state.seconds;
-       
+        let feet = parseInt(this.state.miles)*5280;
+        let hourSeconds = parseInt(this.state.hours) * 3600;
+        hourSeconds += parseInt(this.state.minutes) *60 + parseInt(this.state.seconds);
+    
         this.props.action({
             duration:feet, 
             activity_type: _self.activity_type,
@@ -30,7 +31,7 @@ class WorkoutForm extends React.Component{
             distance: feet, 
             workout_name:_self.workout_name,
             elevation: _self.elevation
-        });
+        }).then(()=>this.props.history.push('/workouts'));
     }
 
 

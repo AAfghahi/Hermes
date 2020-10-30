@@ -1,5 +1,3 @@
-@workouts.each do |workout|
-    json.set! workout.id do 
-        json.partial! 'workout', workout:workout
-    end
+json.array! @workouts do |workout|
+    json.partial! 'workout', workout:workout
 end

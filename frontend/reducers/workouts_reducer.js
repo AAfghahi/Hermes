@@ -10,7 +10,8 @@ const workoutReducer = (oldState = {}, action) =>{
 
     switch(action.type){
         case RECEIVE_WORKOUTS:
-            return action.workouts;
+            action.workouts.forEach(workout => newState[workout.id] = workout)
+            return newState;
         case RECEIVE_WORKOUT:
             newState[action.workout.id] = action.workout;
             return newState;

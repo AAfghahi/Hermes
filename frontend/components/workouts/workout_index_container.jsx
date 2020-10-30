@@ -6,9 +6,11 @@ import {
 } from '../../actions/workout_actions';
 
 
-const mapStateToProps = state => ({
-    workouts: Object.values(state.entities.workouts)
-});
+const mapStateToProps = state => {
+    return({
+        workouts: Object.values(state.entities.workouts)
+    })
+};
 
 const mapDispatchToProps = dispatch => ({
     fetchWorkouts: () => dispatch(fetchWorkouts()),

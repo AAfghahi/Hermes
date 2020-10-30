@@ -8,6 +8,7 @@ class WorkoutIndex extends React.Component{
     
     }
 
+
     render(){
         return(
             <div>
