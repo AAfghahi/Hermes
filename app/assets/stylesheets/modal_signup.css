@@ -16,7 +16,7 @@
 .modal{
     position:relative;
     min-width: 250px;
-    max-width: 650px;
+    max-width: 350px;
     height:500px;
     z-index: 1;
     justify-content: center;
