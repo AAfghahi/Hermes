@@ -48,7 +48,7 @@ test_route  = Route.create!(
     destination_lat:40.66706791877082,
     destination_lng:-73.95885210401839,
     route_name: 'short run',
-    activity_type:'RUNNING',
+    activity_type:'WALKING',
     description:'went for a short run',
     distance: 1371,
     user_id:1,

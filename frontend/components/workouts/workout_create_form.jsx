@@ -108,33 +108,42 @@ class WorkoutForm extends React.Component{
                             </ul>
                             
                         </div>
-                        <br/>
+                        
                         <div className='sports-choice'>
-                            <label>Sport</label>
-                                <select onChange={this.update('activity_type')} value={this.state.activity_type}>
+                            <label className='choice-title'>Sport
+
+                                <select className= 'sports-choices' onChange={this.update('activity_type')} value={this.state.activity_type}>
                                     <option  value="Ride">Ride</option>
                                     <option value="Run">Run</option>
                                     <option value="Walk">Walk</option>
                                 </select>
+                            </label>
 
-                            <label>Title</label>
+                            <label className='choice-title'>Title
+
                                 <input 
+                                    className= 'workout-title-input'
                                     type="text" 
                                     value={this.state.workout_name}
                                     onChange={this.update('workout_name')}
                                     />
+                            </label>
                         </div>
                     
                         
-                        <label>Description</label>
+                        <label className='workout-description'>Description
+
+
                             <textarea
+                                className='description-text'
                                 value={this.state.description}
                                 onChange={this.update('description')}
                                 />
+                        </label>
                 </div>    
               
                 <button className='workout-submit' type="submit">Create</button>
-                <Link to='/workouts'>Cancel</Link>
+                <Link className='cancel-link' to='/workouts'>Cancel</Link>
             </form>
             </div>
             
