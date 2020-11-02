@@ -10,7 +10,7 @@ const mapStateToProps = state =>({
   route:{
       route_name:'',
       description:'',
-      activity_type:'',
+      activity_type:'BICYCLING',
       image_url:'',
       estimated_time: 0,
       distance: 0,
