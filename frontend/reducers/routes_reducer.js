@@ -9,7 +9,8 @@ const routeReducer = (oldState = {}, action) =>{
     let newState = Object.assign({}, oldState);
     switch (action.type) {
         case RECEIVE_ROUTES:
-            return action.routes;
+            action.routes.forEach(route => newState[route.id]= route)
+            return newState;
         case RECEIVE_ROUTE:
             newState[action.route.id]=action.route;
             return newState;

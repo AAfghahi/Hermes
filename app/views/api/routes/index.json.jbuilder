@@ -1,5 +1,5 @@
-@routes.each do |route|
-    json.set! route.id do 
-        json.partial! 'route', route:route
-    end
+json.array! @routes do |route|
+    json.partial! 'route', route:route
 end
+
+

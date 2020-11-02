@@ -44,55 +44,65 @@ class WorkoutForm extends React.Component{
                         <div className='top container'>
                             <ul className='metrics-input'>
                                 <li className='metrics-li'>
-                                    <p>Distance</p>
-                                       
-                                    <div className='number-inputs'>
+                                    <p className='workout-descriptors'>Distance</p>
+                                       <div className='duration-container'>
+
+                                            <input 
+                                            type="number"
+                                            className='distance-input'
+                                            step='0.01'
+                                            onChange={this.update('miles')}
+                                            />
+                                            <div className='number-inputs'>
+                                            miles
+                                            </div> 
+                                       </div>
+                                </li>
+                                <li className='metrics-li'>
+                                    <p className='workout-descriptors'> Duration</p>
+                                   <div className= 'duration-container'>
+                                        <div className='time-inputs'>
+                                            <input 
+                                            className='time-submit'
+                                            type="number"
+                                            placeholder='00 hrs'
+                                            maxLength='2'
+                                            onChange={this.update('hours')}
+                                            /> 
+                                        </div>
+                                        <div className= 'time-inputs'>
+                                            <input
+                                                className='time-submit'
+                                                type="number"
+                                                placeholder='00 min'
+                                                min='0'
+                                                max='60'
+                                                onChange={this.update('minutes')}
+                                                />
+                                        </div>
+                                        <div className='time-inputs'>
+                                            <input 
+                                                className='time-submit'
+                                                type="number"
+                                                placeholder='00 s'
+                                                min='0'
+                                                max='60'
+                                                onChange={this.update('seconds')}
+                                            />
+                                        </div>
+                                   </div>
+                                </li>
+                                <li className='metrics-li'>
+                                    <p className='workout-descriptors'>Elevation</p>
+                                    <div className='duration-container'>
+
                                         <input type="number"
                                         className='distance-input'
-                                        step='0.01'
-                                        value={this.state.miles}
-                                        onChange={this.update('miles')}
-                                        />
-                                        mi
-                                    </div> 
-                                </li>
-                                <li className='metrics-li'>
-                                    <p> Duration</p>
-                                   
-                                    <div className='number-inputs'><input type="number"
-                                        placeholder='01'
-                                        value={this.state.hours}
-                                        min='0'
-                                        onChange={this.update('hours')}
-                                        /> hr</div>
-                                    <div>
-                                    <input type="number"
-                                        placeholder='00'
-                                        value={this.state.minutes}
-                                        min='0'
-                                        max='59'
-                                        onChange={this.update('minutes')}
-                                        /> min
-                                    </div>
-                                    <div className='number-inputs'>
-                                        <input type="number"
-                                        placeholder='00'
-                                        min='0'
-                                        max='59'
-                                        value={this.state.seconds}
-                                        onChange={this.update('seconds')}
-                                        />
-                                        s
-                                    </div>
-                                </li>
-                                <li className='metrics-li'>
-                                    <p>Elevation</p>
-                                    
-                                    <div className='number-inputs'>
-                                        <input type="number"
-                                        value={this.state.elevation}
                                         onChange={this.update('elevation')}
                                         />
+                                        <div className='number-inputs'>
+                                            feet
+                                        </div>
                                     </div>
                                 </li>
                             </ul>
@@ -123,7 +133,7 @@ class WorkoutForm extends React.Component{
                                 />
                 </div>    
               
-                <button type="submit">Create</button>
+                <button className='workout-submit' type="submit">Create</button>
                 <Link to='/workouts'>Cancel</Link>
             </form>
             </div>
